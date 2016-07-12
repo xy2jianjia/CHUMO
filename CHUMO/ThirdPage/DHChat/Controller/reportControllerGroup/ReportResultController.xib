@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportResultController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-Submit.png" translatesAutoresizingMaskIntoConstraints="NO" id="eNA-fF-mvj">
+                    <rect key="frame" x="237" y="102" width="126" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="126" id="6S1-oS-nVq"/>
+                        <constraint firstAttribute="height" constant="96" id="qwD-p2-050"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你的举报已经提交审核,我们会尽快处理!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-Yk-ypi">
+                    <rect key="frame" x="150" y="262" width="299" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="299" id="Uz2-Xo-F1M"/>
+                        <constraint firstAttribute="height" constant="21" id="Z4B-f2-6Mw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核结果我们将通过官方帐号反馈给您！谢谢您的支持！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lW-G5-LxF">
+                    <rect key="frame" x="109.5" y="291" width="381" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="381" id="ewv-Ku-dI6"/>
+                        <constraint firstAttribute="height" constant="21" id="ucl-Sn-0M7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已提交" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDW-51-Wuu">
+                    <rect key="frame" x="275" y="229" width="51" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6z0-YN-5BZ"/>
+                        <constraint firstAttribute="width" constant="51" id="P1O-dD-Wk1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Rd6-Yk-ypi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4HZ-hr-aJu"/>
+                <constraint firstItem="xDW-51-Wuu" firstAttribute="top" secondItem="eNA-fF-mvj" secondAttribute="bottom" constant="31" id="6hf-Vo-YaX"/>
+                <constraint firstItem="eNA-fF-mvj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9VU-bp-Hce"/>
+                <constraint firstItem="2lW-G5-LxF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EH2-2g-rv4"/>
+                <constraint firstItem="xDW-51-Wuu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="I13-jF-glA"/>
+                <constraint firstItem="2lW-G5-LxF" firstAttribute="top" secondItem="Rd6-Yk-ypi" secondAttribute="bottom" constant="8" id="Il3-a7-ADD"/>
+                <constraint firstItem="eNA-fF-mvj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="102" id="lst-Y8-3vp"/>
+                <constraint firstItem="Rd6-Yk-ypi" firstAttribute="top" secondItem="xDW-51-Wuu" secondAttribute="bottom" constant="12" id="pRZ-n0-AQr"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="login-Submit.png" width="126" height="96"/>
+    </resources>
+</document>

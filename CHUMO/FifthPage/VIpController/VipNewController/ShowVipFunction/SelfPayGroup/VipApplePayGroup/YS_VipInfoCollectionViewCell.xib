@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YS_VipInfoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Xs-yZ-DlF">
+                        <rect key="frame" x="20" y="7" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="RTF-rg-4uh"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIu-3Z-ZXi">
+                        <rect key="frame" x="59" y="10" width="81" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0Xs-yZ-DlF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Fd4-jr-p8C"/>
+                <constraint firstAttribute="trailing" secondItem="rIu-3Z-ZXi" secondAttribute="trailing" constant="10" id="Fff-JV-mbj"/>
+                <constraint firstItem="rIu-3Z-ZXi" firstAttribute="leading" secondItem="0Xs-yZ-DlF" secondAttribute="trailing" constant="13" id="VrE-hh-fML"/>
+                <constraint firstAttribute="bottom" secondItem="0Xs-yZ-DlF" secondAttribute="bottom" constant="7" id="bTN-NG-5Eg"/>
+                <constraint firstItem="rIu-3Z-ZXi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="c1r-Ss-0mk"/>
+                <constraint firstAttribute="bottom" secondItem="rIu-3Z-ZXi" secondAttribute="bottom" constant="10" id="fTc-xl-5Y7"/>
+                <constraint firstItem="0Xs-yZ-DlF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="mn0-oE-3jR"/>
+            </constraints>
+            <connections>
+                <outlet property="VipInfoimage" destination="0Xs-yZ-DlF" id="SvS-e4-6uo"/>
+                <outlet property="VipLable" destination="rIu-3Z-ZXi" id="tF4-aw-BOv"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

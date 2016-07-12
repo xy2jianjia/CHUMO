@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>COM_DOMAIN</key>
+	<dict>
+		<key>H5_API</key>
+		<string>http://h5.imchumo.com/lp-h5-msc/</string>
+		<key>PAY_API</key>
+		<string>http://pay.imchumo.com/lp-pay-msc/</string>
+		<key>FILE_API</key>
+		<string>http://filemsc.imchumo.com/lp-file-msc/</string>
+		<key>BUS_API</key>
+		<string>http://busmsc.imchumo.com/lp-bus-msc/</string>
+		<key>AUTHER_API</key>
+		<string>http://uc.imchumo.com/lp-author-msc/</string>
+	</dict>
+	<key>INLINE_DOMAIN</key>
+	<dict>
+		<key>H5_API</key>
+		<string>http://192.168.0.122:8080/lp-h5-msc/</string>
+		<key>PAY_API</key>
+		<string>http://192.168.0.122:8080/lp-pay-msc/</string>
+		<key>FILE_API</key>
+		<string>http://192.168.0.122:8080/lp-file-msc/</string>
+		<key>BUS_API</key>
+		<string>http://192.168.0.122:8080/lp-bus-msc/</string>
+		<key>AUTHER_API</key>
+		<string>http://192.168.0.122:8080/lp-author-msc/</string>
+	</dict>
+</dict>
+</plist>

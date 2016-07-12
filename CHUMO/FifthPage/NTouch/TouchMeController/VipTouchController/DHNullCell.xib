@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="540" id="LAu-vC-sf9" customClass="DHNullCell">
+            <rect key="frame" x="0.0" y="0.0" width="460" height="540"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAu-vC-sf9" id="AK8-Rk-YCS">
+                <rect key="frame" x="0.0" y="0.0" width="460" height="539.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7I-Uf-B0t">
+                        <rect key="frame" x="139" y="475.5" width="183" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="183" id="Kv6-Vi-KKo"/>
+                            <constraint firstAttribute="height" constant="39" id="Uwt-tr-LB5"/>
+                        </constraints>
+                        <state key="normal" title="现在去" backgroundImage="key-normal">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="clickAction:" destination="LAu-vC-sf9" eventType="touchUpInside" id="xWi-pN-fW7"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchme_nodata_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gBl-lY-snj">
+                        <rect key="frame" x="81" y="75" width="298.5" height="375.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="298.5" id="FhK-lK-AT6"/>
+                            <constraint firstAttribute="height" constant="375.5" id="NqT-vv-hwL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="E7I-Uf-B0t" firstAttribute="top" secondItem="gBl-lY-snj" secondAttribute="bottom" constant="25" id="8zV-v3-nzV"/>
+                    <constraint firstItem="gBl-lY-snj" firstAttribute="top" secondItem="AK8-Rk-YCS" secondAttribute="topMargin" constant="67" id="dSu-BW-UsU"/>
+                    <constraint firstItem="gBl-lY-snj" firstAttribute="centerX" secondItem="AK8-Rk-YCS" secondAttribute="centerX" id="n9B-hQ-2ln"/>
+                    <constraint firstItem="E7I-Uf-B0t" firstAttribute="centerX" secondItem="AK8-Rk-YCS" secondAttribute="centerX" id="wV2-FZ-PzU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headerImage" destination="gBl-lY-snj" id="GPO-qA-5gM"/>
+                <outlet property="setButAction" destination="E7I-Uf-B0t" id="jUY-qs-rq2"/>
+            </connections>
+            <point key="canvasLocation" x="570" y="298"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="key-normal" width="313" height="66"/>
+        <image name="touchme_nodata_icon" width="465" height="586"/>
+    </resources>
+</document>
