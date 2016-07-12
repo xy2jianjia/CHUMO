@@ -20,6 +20,8 @@
 #import "NELivePlayerController.h"
 #import "LSMediaCapture.h"
 #import "nMediaLiveStreamingDefs.h"
+#import "Homepage.h"
+#import "JYNavigationController.h"
 @interface DHHostLiveInfoViewController ()<HttpOperationDelegate>
 /**
  *  观众数组
@@ -234,8 +236,20 @@
 //    self.player = nil;
 }
 -(void)liveInfoView:(DHLiveInfoView *)liveInfoView didOpenUserInfoWithIndex:(NSInteger)userIndex{
+    Homepage *home = [[Homepage alloc]init];
+    home.touchP2 = @"10106606";
+//    if (msgmodel.isCurrentUser) {
+//        NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+//        DHUserInfoModel *user = [DHUserInfoDao getUserWithCurrentUserId:userId];
+//        otherVC.touchP2 = userId;
+//        otherVC.item = user;
+//    }else{
+//        otherVC.touchP2 = self.item.targetId;
+//        otherVC.item = self.userInfo;
+//    }
+    JYNavigationController *nav = [[JYNavigationController alloc] initWithRootViewController:home];
+    [self presentViewController:nav animated:YES completion:nil];
     
-    NSLog(@"%@",[_groupUserArr objectAtIndex:userIndex]);
     
 }
 -(NSInteger)live_numberOfSectionsInTableView:(UITableView *)tableView{

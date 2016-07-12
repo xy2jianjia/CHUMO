@@ -1604,11 +1604,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-            timestampString = "489986203.774657"
+            timestampString = "490008392.75793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-live_dataDidLoaded:code:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1636,11 +1636,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-            timestampString = "489988052.595887"
+            timestampString = "490008392.75793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-shutDownCapture"
             landmarkType = "5">
             <Locations>
@@ -1651,12 +1651,12 @@
                   symbolName = "-[DHHostLiveInfoViewController shutDownCapture]"
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xy2/Desktop/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490002684.305055"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
+                  timestampString = "490008395.460548"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
                   offsetFromSymbolStart = "144">
                </Location>
                <Location
@@ -1666,12 +1666,12 @@
                   symbolName = "__47-[DHHostLiveInfoViewController shutDownCapture]_block_invoke"
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xy2/Desktop/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490002684.305275"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
+                  timestampString = "490008395.460695"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
@@ -1722,6 +1722,22 @@
             startingLineNumber = "46"
             endingLineNumber = "46"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
+            timestampString = "490008319.588963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-liveInfoView:didOpenUserInfoWithIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
