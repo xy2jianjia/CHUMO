@@ -10,6 +10,7 @@
 #import "YS_PayModel.h"
 #import "DHLiveInfoModel.h"
 #import "ASIFormDataRequest.h"
+#import "DHLiveImMsgModel.h"
 @class HttpOperation;
 
 @protocol HttpOperationDelegate <NSObject>
@@ -241,4 +242,33 @@
  *  @param completed
  */
 + (void)asyncLive_GetChanelListWithCurPage:(NSInteger )curPage pageSize:(NSInteger )pageSize queue:(dispatch_queue_t )queue completed:(void(^)( NSArray *chanelList , NSInteger code))completed;
+
+/**
+ *  直播 ---网易im登录
+ *
+ *  @param queue
+ *  @param completed 
+ */
++ (void)asyncLiveIM_GetLoginTokenWithQueue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *neteaseImInfo , NSInteger code))completed;
+/**
+ *  直播 --- 网易聊天室发消息
+ *
+ *  @param roomId     主播的直播频道id
+ *  @param resendFlag 重发消息标记，0：非重发消息，1：重发消息，如重发消息会按照msgid检查去重逻辑
+ *  @param msgModel   消息model：（1）、客户端消息id，使用uuid等随机串，msgId相同的消息会被客户端去重；
+ *  （2）、消息类型：
+ *  0: 表示文本消息，
+ *  1: 表示图片，
+ *  2: 表示语音，
+ *  3: 表示视频，
+ *  4: 表示地理位置信息，
+ *  6: 表示文件，
+ *  10: 表示Tips消息，
+ *  100: 自定义消息类型
+ *  （3）消息内容，格式同消息格式示例中的body字段,长度限制2048字节
+ ）
+ *  @param queue
+ *  @param completed
+ */
++ (void)asyncLiveIM_SendMessageWithRoomId:(NSString *)roomId resendFlag:(NSString *)resendFlag msgModel:(DHLiveImMsgModel *)msgModel queue:(dispatch_queue_t )queue completed:(void(^)(DHLiveImMsgModel *msgModel , NSInteger code))completed;
 @end

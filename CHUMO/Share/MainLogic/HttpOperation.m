@@ -1142,7 +1142,93 @@
 }
 
 
-#pragma  mark -- 直播结束 2016年07月09日14:57:55
 
+#pragma mark -- 网易云im 开始 --2016年07月12日18:59:20 
++ (void)asyncLiveIM_GetLoginTokenWithQueue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *neteaseImInfo , NSInteger code))completed{
+    [[HttpOperation shareInstance] asyncLiveIM_GetLoginTokenWithQueueueue:queue completed:completed];
+}
+- (void)asyncLiveIM_GetLoginTokenWithQueueueue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *neteaseImInfo , NSInteger code))completed{
+    
+    AFHTTPRequestOperationManager *manger = [self getManager];
+    [manger.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    [manger.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSMutableDictionary *appinfo = [[NSGetTools getAppInfoDict] mutableCopy];
+    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",userId] forKey:@"accid"];
+    NSData *jsonData = [appinfo JSONData];
+    NSString *url = [NSString stringWithFormat:@"%@new",kServerAddressTest_LIVE_IM];
+    url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    [request setRequestHeaders:[@{@"X-ApiKey":@"j8slb29fbalc83pna2af2c2954hcw65",@"Content-Type":@"application/json"} mutableCopy]];
+    [request setRequestMethod:@"POST"];
+    [request setPostBody:[jsonData mutableCopy]];
+    [request startSynchronous];
+    NSData *data = request.responseData;
+    NSString *jsonStr = request.responseString;
+    if (data) {
+        NSError *error = nil;
+        NSDictionary *infoDic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:&error];
+        NSInteger codeNum = [infoDic[@"retcode"] integerValue];
+        NSString *msg = [infoDic objectForKey:@"msg"];
+        NSDictionary *neteaseIm = [infoDic objectForKey:@"neteaseIm"] == [NSNull null] ? nil:[infoDic objectForKey:@"neteaseIm"];
+        if ([neteaseIm allKeys].count > 0) {
+            NSString *token = [neteaseIm objectForKey:@"token"];
+            [JNKeychain saveValue:token forKey:userId];
+            completed(neteaseIm,codeNum);
+        }else{
+            completed(nil,codeNum);
+        }
+        
+    }else{
+        completed(nil,-1);
+    }
+}
+
++ (void)asyncLiveIM_SendMessageWithRoomId:(NSString *)roomId resendFlag:(NSString *)resendFlag msgModel:(DHLiveImMsgModel *)msgModel queue:(dispatch_queue_t )queue completed:(void(^)(DHLiveImMsgModel *msgModel , NSInteger code))completed{
+    [[HttpOperation shareInstance] asyncLiveIM_SendMessageWithRoomId:roomId resendFlag:resendFlag msgModel:msgModel queue:queue completed:completed];
+}
+- (void)asyncLiveIM_SendMessageWithRoomId:(NSString *)roomId resendFlag:(NSString *)resendFlag msgModel:(DHLiveImMsgModel *)msgModel queue:(dispatch_queue_t )queue completed:(void(^)(DHLiveImMsgModel *msgModel , NSInteger code))completed{
+    
+    AFHTTPRequestOperationManager *manger = [self getManager];
+    [manger.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    [manger.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSMutableDictionary *appinfo = [[NSGetTools getAppInfoDict] mutableCopy];
+//    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",roomId] forKey:@"roomid"];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",msgModel.msgid_client] forKey:@"msgId"];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",msgModel.fromAccount] forKey:@"fromAccid"];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",msgModel.type] forKey:@"msgType"];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",resendFlag] forKey:@"resendFlag"];
+    [appinfo setObject:[NSString stringWithFormat:@"%@",msgModel.attach] forKey:@"attach"];
+    NSData *jsonData = [appinfo JSONData];
+    NSString *url = [NSString stringWithFormat:@"%@new",kServerAddressTest_LIVE_IM_CHATROOM];
+    url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    [request setRequestHeaders:[@{@"X-ApiKey":@"j8slb29fbalc83pna2af2c2954hcw65",@"Content-Type":@"application/json"} mutableCopy]];
+    [request setRequestMethod:@"POST"];
+    [request setPostBody:[jsonData mutableCopy]];
+    [request startSynchronous];
+    NSData *data = request.responseData;
+    NSString *jsonStr = request.responseString;
+    if (data) {
+        NSError *error = nil;
+        NSDictionary *infoDic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:&error];
+        NSInteger codeNum = [infoDic[@"retcode"] integerValue];
+        NSString *msg = [infoDic objectForKey:@"msg"];
+        NSDictionary *neteaseIm = [infoDic objectForKey:@"chatRoomMessage"] == [NSNull null] ? nil:[infoDic objectForKey:@"chatRoomMessage"];
+        if ([neteaseIm allKeys].count > 0) {
+            DHLiveImMsgModel *model = [[DHLiveImMsgModel alloc]init];
+            [model setValuesForKeysWithDictionary:neteaseIm];
+            completed(model,codeNum);
+        }else{
+            completed(nil,codeNum);
+        }
+        
+    }else{
+        completed(nil,-1);
+    }
+}
+
+#pragma  mark -- 直播结束 2016年07月09日14:57:55
 
 @end

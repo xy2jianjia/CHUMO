@@ -22,7 +22,7 @@
 #import "JYNavigationController.h"
 #import "ViewController+Activity.h"
 #import "AFNHttpRequestOPManager.h"
-@interface ViewController () <UITabBarControllerDelegate,UIAlertViewDelegate,DHAlertViewDelegate,RobotManagerDelegate>
+@interface ViewController () <UITabBarControllerDelegate,UIAlertViewDelegate,DHAlertViewDelegate,RobotManagerDelegate,NIMChatManagerDelegate>
 @property (nonatomic,strong) NSTimer *timer;
 /**
  *  接收到的消息数组，包括机器人消息和用户消息
@@ -67,6 +67,20 @@
     
     
 }
+-(void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
+    
+    NSLog(@"%@",messages);
+    
+}
+- (void)sendMessage:(NIMMessage *)message progress:(CGFloat)progress{
+    NSLog(@"%f",progress);
+}
+-(void)willSendMessage:(NIMMessage *)message{
+    NSLog(@"%@",message);
+}
+- (void)sendMessage:(NIMMessage *)message didCompleteWithError:(nullable NSError *)error{
+    NSLog(@"%@",error.userInfo);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [AFNHttpRequestOPManager sharedClient:self];
@@ -77,15 +91,43 @@
     self.recMesgArr = [NSMutableArray array];
     self.recommendArr = [NSMutableArray array];
     
-    
-    // 网易云
     NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-    NSString *token =  @"fbef97d9dbce5793f95400165ed69afa1ec23c983834e2901e4457a26311fac1";
-    [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
-    
-        
-    }];
-    
+    NSString *token = [JNKeychain loadValueForKey:userId];
+    // 若是存在，不再请求，直接登录网易
+    if (![token isEqualToString:@"(null)"] && [token length] > 0) {
+        [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
+            [[NIMSDK sharedSDK].chatManager addDelegate:self];
+//            //构造消息
+//            NIMMessage *message = [[NIMMessage alloc] init];
+//            message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
+//            
+//            //构造会话
+//            NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
+//            
+//            //发送消息
+//            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+            
+        }];
+    }else{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // 网易云
+            [HttpOperation asyncLiveIM_GetLoginTokenWithQueue:nil completed:^(NSDictionary *neteaseImInfo, NSInteger code) {
+                NSString *token =  [neteaseImInfo objectForKey:@"token"];
+                [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
+                    [[NIMSDK sharedSDK].chatManager addDelegate:self];
+                    //构造消息
+                    NIMMessage *message = [[NIMMessage alloc] init];
+                    message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
+                    
+                    //构造会话
+                    NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
+                    
+                    //发送消息
+                    [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+                }];
+            }];
+        });
+    }
     NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"recommed_system_data"];
     for (NSDictionary *temp in arr) {
         // 发消息次数

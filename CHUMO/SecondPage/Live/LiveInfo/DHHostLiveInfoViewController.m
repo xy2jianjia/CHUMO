@@ -85,7 +85,7 @@
 - (void) live_dataDidLoaded:(DHLiveInfoModel *)liveInfo code:(NSInteger )code{
     dispatch_async(dispatch_get_main_queue(), ^{
     _liveInfo = liveInfo;
-    
+    [self sendMessage];
     NSString *url = nil;
     // 主播
     url = liveInfo.pushUrl;
@@ -116,48 +116,29 @@
         [self configLiveViewInview:self.view];
     });
 }
+- (void)sendMessage{
+    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+    DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
+    
+    
+    DHLiveImMsgModel *item = [[DHLiveImMsgModel alloc]init];
+    item.msgid_client = [self configUUid];
+    item.roomId = _liveInfo.neteaseCid;
+    item.type = @"0";
+    item.time = [[DHTool shareTool] stringFromDate:[NSDate date]];
+    item.fromAccount = userInfo.b80;
+    item.fromNick = userInfo.b52;
+    item.fromAvator = userInfo.b57;
+    item.fromClientType = @"2";
+    item.attach = @"小米官方表示MIUI9将在近期开工，米粉期待大亮";
+    [HttpOperation asyncLiveIM_SendMessageWithRoomId:item.roomId resendFlag:0 msgModel:item queue:nil completed:^(DHLiveImMsgModel *msgModel, NSInteger code) {
+        
+    }];
+}
+
 - (void)startUpWithUserInfo:(DHUserInfoModel *)userInfo{
     
     [HttpOperation asyncLive_OpenLiveWithTargetUserId:userInfo.b80 nickName:userInfo.b52 portrait:userInfo.b57 type:0 delegate:self];
-    
-//    [HttpOperation asyncLive_OpenLiveWithTargetUserId:userInfo.b80 nickName:userInfo.b52 portrait:userInfo.b57 type:0 queue:nil completed:^(DHLiveInfoModel *liveInfo, NSInteger code) {
-//        
-//        _liveInfo = liveInfo;
-//        
-//        NSString *url = nil;
-//        // 主播
-//        //        url = @"rtmp://p56d71a0a.live.126.net/live/97fbeb06c256401e9f977c7ec82a50e6?wsSecret=efefcdd2f9bc3d26d5118c6cde5db6c5&wsTime=1467803721";
-//        //    NSString *url = @"http://v56d71a0a.live.126.net/live/97fbeb06c256401e9f977c7ec82a50e6.flv";
-//        //    NSString *url = @"rtmp://v56d71a0a.live.126.net/live/97fbeb06c256401e9f977c7ec82a50e6";
-//        
-//        url = liveInfo.pushUrl;
-//        
-//        //初始化直播参数，并创建音视频直播
-//        NSError* error = nil;
-//        LSLiveStreamingParaCtx paraCtx;
-//        paraCtx.eHaraWareEncType             = LS_HRD_NO;
-//        paraCtx.eOutFormatType               = LS_OUT_FMT_RTMP;
-//        paraCtx.eOutStreamType               = LS_HAVE_AV; //这里可以设置推音视频流／音频流／视频流，如果只推送视频流，则不支持伴奏播放音乐
-//        memcpy(&paraCtx.sLSVideoParaCtx, &_sVideoParaCtx, sizeof(LSVideoParaCtx));
-//        paraCtx.sLSAudioParaCtx.bitrate       = 64000;
-//        paraCtx.sLSAudioParaCtx.codec         = LS_AUDIO_CODEC_AAC;
-//        paraCtx.sLSAudioParaCtx.frameSize     = 2048;
-//        paraCtx.sLSAudioParaCtx.numOfChannels = 1;
-//        paraCtx.sLSAudioParaCtx.samplerate    = 44100;
-//        self.capture = [[LSMediaCapture alloc]initLiveStream:url];
-//        
-//        [_capture setTraceLevel:LS_LOG_DEFAULT];
-//        NSError *error1 = nil;
-//        [self.capture startLiveStreamWithError:&error1];
-//        if (error1) {
-//            NSLog(@"初始化推流失败%@",error);
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            //打开摄像头预览
-//            [_capture startVideoPreview:self.view];
-//            [self configLiveViewInview:self.view];
-//        });
-//    }];
 }
 
 - (void)configPlayer{

@@ -50,8 +50,11 @@
 // 统计
 #define kServerAddressTest_COLLECT @"http://192.168.0.122:8104/lp-collect-msc/"
 // 直播
-#define kServerAddressTest_LIVE @"http://192.168.0.122:9078/rest/auth/channel/"
+#define kServerAddressTest_LIVE @"http://192.168.0.122:9078/auth/channel/"
 //#define kServerAddressTest_LIVE @"http://10.10.16.52:8080/auth/channel/"
+
+#define kServerAddressTest_LIVE_IM @"http://192.168.0.122:9078/auth/im/"
+#define kServerAddressTest_LIVE_IM_CHATROOM @"http://192.168.0.122:9078/auth/chatmessage/"
 
 #warning 此处在切换域名的时候，要改 -- by大海。
 #define kAPIType 1000 // 配置机器人url

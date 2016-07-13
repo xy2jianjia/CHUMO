@@ -129,9 +129,32 @@
         [self.player prepareToPlay];
         [self.player play];
         [self configLiveViewInview:self.view];
+        
+        
+        [self sendMessage];
+        
     }
     
     
+}
+- (void)sendMessage{
+    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+    DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
+    
+    
+    DHLiveImMsgModel *item = [[DHLiveImMsgModel alloc]init];
+    item.msgid_client = [self configUUid];
+    item.roomId = _liveInfoModel.neteaseCid;
+    item.type = @"0";
+    item.time = [[DHTool shareTool] stringFromDate:[NSDate date]];
+    item.fromAccount = userInfo.b80;
+    item.fromNick = userInfo.b52;
+    item.fromAvator = userInfo.b57;
+    item.fromClientType = @"2";
+    item.attach = @"小米官方表示MIUI9将在近期开工，米粉期待大亮";
+    [HttpOperation asyncLiveIM_SendMessageWithRoomId:item.roomId resendFlag:0 msgModel:item queue:nil completed:^(DHLiveImMsgModel *msgModel, NSInteger code) {
+        
+    }];
 }
 - (void)configLiveViewInview:(UIView *)inview{
     _groupUserArr = @[@"http://www.qq1234.org/uploads/allimg/150129/1615131V7-0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/16151313a-9.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615133443-3.jpg",@"http://img3.imgtn.bdimg.com/it/u=3589741497,617053446&fm=21&gp=0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615135403-6.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615134139-5.jpg",@"http://lol.wanyx.com/img.wanyx.com/public/upload/hero6da7464f173512c8773e6c6a8a94303c.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615131V7-0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/16151313a-9.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615133443-3.jpg",@"http://img3.imgtn.bdimg.com/it/u=3589741497,617053446&fm=21&gp=0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615135403-6.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615134139-5.jpg",@"http://lol.wanyx.com/img.wanyx.com/public/upload/hero6da7464f173512c8773e6c6a8a94303c.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615131V7-0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/16151313a-9.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615133443-3.jpg",@"http://img3.imgtn.bdimg.com/it/u=3589741497,617053446&fm=21&gp=0.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615135403-6.jpg",@"http://www.qq1234.org/uploads/allimg/150129/1615134139-5.jpg",@"http://lol.wanyx.com/img.wanyx.com/public/upload/hero6da7464f173512c8773e6c6a8a94303c.jpg"].mutableCopy;
