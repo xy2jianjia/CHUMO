@@ -91,53 +91,53 @@
     self.recMesgArr = [NSMutableArray array];
     self.recommendArr = [NSMutableArray array];
     
-    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-    NSString *token = [JNKeychain loadValueForKey:userId];
-    // 若是存在，不再请求，直接登录网易
-    if (![token isEqualToString:@"(null)"] && [token length] > 0) {
-        [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
-            [[NIMSDK sharedSDK].chatManager addDelegate:self];
-//            //构造消息
-//            NIMMessage *message = [[NIMMessage alloc] init];
-//            message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
+//    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+//    NSString *token = [JNKeychain loadValueForKey:userId];
+//    // 若是存在，不再请求，直接登录网易
+//    if (![token isEqualToString:@"(null)"] && [token length] > 0) {
+//        [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
+//            [[NIMSDK sharedSDK].chatManager addDelegate:self];
+////            //构造消息
+////            NIMMessage *message = [[NIMMessage alloc] init];
+////            message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
+////            
+////            //构造会话
+////            NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
+////            
+////            //发送消息
+////            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
 //            
-//            //构造会话
-//            NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
-//            
-//            //发送消息
-//            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
-            
-        }];
-    }else{
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            // 网易云
-            [HttpOperation asyncLiveIM_GetLoginTokenWithQueue:nil completed:^(NSDictionary *neteaseImInfo, NSInteger code) {
-                NSString *token =  [neteaseImInfo objectForKey:@"token"];
-                [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
-                    [[NIMSDK sharedSDK].chatManager addDelegate:self];
-                    //构造消息
-                    NIMMessage *message = [[NIMMessage alloc] init];
-                    message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
-                    
-                    //构造会话
-                    NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
-                    
-                    //发送消息
-                    [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
-                }];
-            }];
-        });
-    }
-    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"recommed_system_data"];
-    for (NSDictionary *temp in arr) {
-        // 发消息次数
-        if ([[temp objectForKey:@"b20"] isEqualToString:@"button_one_times"]) {
-            self.sendMessageTotalTimes = [[temp objectForKey:@"b22"] integerValue];
-        }else if([[temp objectForKey:@"b20"] isEqualToString:@"button_two_times"]){
-            // 推荐总次数
-            self.recommendTotalTimes = [[temp objectForKey:@"b22"] integerValue];
-        }
-    }
+//        }];
+//    }else{
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            // 网易云
+//            [HttpOperation asyncLiveIM_GetLoginTokenWithQueue:nil completed:^(NSDictionary *neteaseImInfo, NSInteger code) {
+//                NSString *token =  [neteaseImInfo objectForKey:@"token"];
+//                [[[NIMSDK sharedSDK] loginManager] login:userId token:token completion:^(NSError *error) {
+//                    [[NIMSDK sharedSDK].chatManager addDelegate:self];
+//                    //构造消息
+//                    NIMMessage *message = [[NIMMessage alloc] init];
+//                    message.text    = @"你猜 、你猜我猜不猜 、你猜我猜你猜不猜、你猜我猜你猜我猜你猜不猜、你猜我猜你猜我猜你猜我猜你猜不猜每次加个你猜不猜。";
+//                    
+//                    //构造会话
+//                    NIMSession *session = [NIMSession session:userId type:NIMSessionTypeP2P];
+//                    
+//                    //发送消息
+//                    [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+//                }];
+//            }];
+//        });
+//    }
+//    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"recommed_system_data"];
+//    for (NSDictionary *temp in arr) {
+//        // 发消息次数
+//        if ([[temp objectForKey:@"b20"] isEqualToString:@"button_one_times"]) {
+//            self.sendMessageTotalTimes = [[temp objectForKey:@"b22"] integerValue];
+//        }else if([[temp objectForKey:@"b20"] isEqualToString:@"button_two_times"]){
+//            // 推荐总次数
+//            self.recommendTotalTimes = [[temp objectForKey:@"b22"] integerValue];
+//        }
+//    }
 #warning mark 更新
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self asyncUpgrade];
