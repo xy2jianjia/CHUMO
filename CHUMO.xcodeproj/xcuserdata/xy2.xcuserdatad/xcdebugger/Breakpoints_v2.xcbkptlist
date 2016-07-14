@@ -1924,7 +1924,7 @@
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490094338.607225"
+                  timestampString = "490172726.987488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -1939,7 +1939,7 @@
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490094338.607461"
+                  timestampString = "490172726.987728"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -1962,6 +1962,310 @@
             startingLineNumber = "135"
             endingLineNumber = "135"
             landmarkName = "-sendMessage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/ForethPage/NearPeopleViewController.m"
+            timestampString = "490159989.183724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-asyncLoadDataWithUrl:parameters:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NearPeopleViewController asyncLoadDataWithUrl:parameters:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/ForethPage/NearPeopleViewController.m"
+                  timestampString = "490172726.991282"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "2008">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__60-[NearPeopleViewController asyncLoadDataWithUrl:parameters:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/ForethPage/NearPeopleViewController.m"
+                  timestampString = "490172726.992777"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/ForethPage/NearPeopleViewController.m"
+            timestampString = "490160041.744518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "-asyncLoadDataWithUrl:parameters:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/ForethPage/NearPeopleViewController.m"
+            timestampString = "490160066.433377"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-asyncLoadDataOfDown"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/NSGetTools.m"
+            timestampString = "490160089.249744"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "951"
+            endingLineNumber = "951"
+            landmarkName = "+getCLLocationData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+            timestampString = "490171570.126756"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-temptation_configSuitRobot"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RobotManager(TemptationSuitRobot) temptation_configSuitRobot]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490171676.672644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[RobotManager(TemptationSuitRobot) temptation_configSuitRobot]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490171676.672831"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager.m"
+            timestampString = "490171630.380771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "+shareInstance"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager.m"
+            timestampString = "490171631.264914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "+shareInstance"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+            timestampString = "490171715.532107"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-temptation_startUpWithInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+            timestampString = "490171957.636653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-temptation_startUpWithInfo:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RobotManager(TemptationSuitRobot) temptation_startUpWithInfo:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490171998.469169"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "454">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[RobotManager(TemptationSuitRobot) temptation_startUpWithInfo:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490171998.469322"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+            timestampString = "490172163.587984"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-temptation_startUpWithInfo:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[RobotManager(TemptationSuitRobot) temptation_startUpWithInfo:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490172237.771657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "445">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[RobotManager(TemptationSuitRobot) temptation_startUpWithInfo:]_block_invoke_2"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+                  timestampString = "490172237.771915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/RobotManager/Logical/RobotManager+TemptationSuitRobot.m"
+            timestampString = "490172290.634415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-temptation_startUpWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

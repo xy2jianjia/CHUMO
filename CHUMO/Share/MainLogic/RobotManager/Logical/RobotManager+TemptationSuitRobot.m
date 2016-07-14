@@ -12,9 +12,19 @@
 - (void)temptation_configSuitRobot{
     __weak RobotManager *weakSelf = self;
     NSInteger timeInterval = [self randomIndexWithMaxNumber:5 min:1];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * 60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * 1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SuitRobotHttpDao asyncGetSuitRobotsWithType:@"2" completed:^(NSArray *messageArray) {
-            self.temptationSuitRobotArr = [messageArray mutableCopy];
+            self.temptationSuitRobotArr = @[].mutableCopy;
+            NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+            NSArray *hasSendIds = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_suit_temptation_hasSendIds",userId]];
+            for (NSDictionary *dict in messageArray) {
+                // 去重:如果hasSendIds这个数组存在已经发过的用户id，则不再添加入数据源
+                NSString *aid = [[dict allKeys] firstObject];
+                NSNumber *lastId = [NSNumber numberWithInteger:[aid integerValue]] ;
+                if (![hasSendIds containsObject:lastId]) {
+                    [self.temptationSuitRobotArr addObject:dict];
+                }
+            }
             [weakSelf temptation_config];
         }];
     });
@@ -24,43 +34,33 @@
     
     __weak RobotManager *weakSelf = self;
     if (self.temptationSuitRobotArr.count > 0) {
-        NSInteger random_index = [self randomIndexWithMaxNumber:self.temptationSuitRobotArr.count - 1  min:0];
-        NSArray *messageList = nil;
-        SuitRobotMessageModel *randomMessage = nil;
-        if (random_index <= self.temptationSuitRobotArr.count - 1) {
-            messageList = [[self.temptationSuitRobotArr objectAtIndex:random_index] objectForKey:[[[self.temptationSuitRobotArr objectAtIndex:random_index] allKeys] lastObject]];
-        }
-        NSInteger random = [self randomIndexWithMaxNumber:messageList.count - 1 min:0];
-        if (random < 0) {
-            random = 0;
-        }else if (random >= messageList.count){
-            random = messageList.count - 1;
-        }
-        randomMessage = [messageList objectAtIndex:random];
-//        NSPredicate *preTemplate = [NSPredicate predicateWithFormat:@"b27==$NAME"];
-//        NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:
-//                           randomMessage.b27, @"NAME",nil];
-//        NSPredicate *pre=[preTemplate predicateWithSubstitutionVariables: dic];
-//        
-//        NSArray  *arrayPre=[self.temptationSuitRobotArr filteredArrayUsingPredicate: pre];
-        NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-        DHUserInfoModel *currentUserInfo = [self temptation_suit_getCurrentUserInfoWithUserId:userId];
-        // 获取机器人信息
-        NSString *sessionId = [NSGetTools getUserSessionId];
-        NSDictionary *para = [NSDictionary dictionaryWithObjectsAndKeys:sessionId,@"p1",randomMessage.b27,@"p2",nil];
+//        for (int i = 0; i < self.temptationSuitRobotArr.count; i ++) {
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                NSDictionary *temp = [self.temptationSuitRobotArr objectAtIndex:i];
+//                [weakSelf temptation_startUpWithInfo:temp];
+//            });
+//        }
+        NSDictionary *temp = [self.temptationSuitRobotArr lastObject];
+        [weakSelf temptation_startUpWithInfo:temp];
+    }
+}
+- (void)temptation_startUpWithInfo:(NSDictionary *)dict{
+    __weak RobotManager *weakSelf = self;
+    NSArray *messageList = [dict objectForKey:[[dict allKeys] lastObject]];;
+    
+    for (int i = 0; i < messageList.count ; i ++) {
         
-        [UserHttpDao asyncGetUserInfoWithPara:para completed:^(NSDictionary *userInfo, DHUserInfoModel *userInfoModel) {
-            NSInteger totleTime=0;
-//            SuitRobotMessageModel *mesModel=arrayPre[i];
-            // 1~3分钟回复第二条
+        NSInteger random_timeInterval = [self randomIndexWithMaxNumber:(i+1)*60 min:i*60];
+        NSLog(@"%s诱惑机器人第%d条消息时间：%ld",__func__,i,random_timeInterval);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(random_timeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            SuitRobotMessageModel *randomMessage = [messageList objectAtIndex:i];
+            NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+            DHUserInfoModel *currentUserInfo = [self temptation_suit_getCurrentUserInfoWithUserId:userId];
+            // 获取机器人信息
+            NSString *sessionId = [NSGetTools getUserSessionId];
+            NSDictionary *para = [NSDictionary dictionaryWithObjectsAndKeys:sessionId,@"p1",randomMessage.b27,@"p2",nil];
             
-            NSInteger randomTimerDural = [self randomIndexWithMaxNumber:2 min:0];
-            
-            totleTime=totleTime+(randomTimerDural+1);
-            NSInteger timetotle=totleTime;
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((timetotle + 1) * 60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
+            [UserHttpDao asyncGetUserInfoWithPara:para completed:^(NSDictionary *userInfo, DHUserInfoModel *userInfoModel) {
                 [weakSelf temptation_suit_sendMessageWithCurrentUserInfo:currentUserInfo targetRobot:userInfoModel nextMessage:randomMessage completed:^(DHMessageModel *lastMessage) {
                     if (lastMessage) {
                         [self.temptationSuitRobotArr removeObject:randomMessage];
@@ -69,24 +69,13 @@
                         }
                     }
                 }];
-                
-            });
-//            for (int i=0; i<arrayPre.count; i++) {
-//                
-//                
-//                
-//                
-//                
-//                
-//            }
-            
-        }];
-        
+            }];
+        });
         
         
     }
-    
 }
+
 #pragma mark 配置信息完毕，发送消息
 // 发消息
 - (void)temptation_suit_sendMessageWithCurrentUserInfo:(DHUserInfoModel *)userInfo targetRobot:(DHUserInfoModel *)targetRobot nextMessage:(SuitRobotMessageModel *)nextMessage completed:(void(^)(DHMessageModel *lastMessage))completed{

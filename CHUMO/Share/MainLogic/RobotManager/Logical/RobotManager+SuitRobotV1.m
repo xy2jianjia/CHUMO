@@ -51,11 +51,8 @@
                 NSArray *hasSendIds = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_hasSendIds",userId]];
                 for (NSDictionary *dict in messageArray) {
                     // 去重:如果hasSendIds这个数组存在已经发过的用户id，则不再添加入数据源
-                    
-                    //                NSString *lastId = [NSString stringWithFormat:@"%@",[[dict allKeys] firstObject]];
                     NSString *aid = [[dict allKeys] firstObject];
                     NSNumber *lastId = [NSNumber numberWithInteger:[aid integerValue]] ;
-                    //                NSNumber *lastId = [NSNumber numberWithInteger:[[[dict allKeys] firstObject] integerValue]];
                     if (![hasSendIds containsObject:lastId]) {
                         [self.suitRobotArr addObject:dict];
                     }

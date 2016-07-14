@@ -64,10 +64,10 @@
 
     // 配套机器人
 #warning 此处没有感叹号 -- by大海2016年06月16日17:44:39
-    if ([manager isAllReady]) {
+    if (![manager isAllReady]) {
         BOOL suit_isTemptationAllReady = [manager suit_isTemptationAllReady];
         #warning 此处没有感叹号 --by 大海 2016年06月25日11:30:16
-        if (suit_isTemptationAllReady) {
+        if (!suit_isTemptationAllReady) {
             [manager temptation_configSuitRobot];
         }
         [manager configSuitRobot];
