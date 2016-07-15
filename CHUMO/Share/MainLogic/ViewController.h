@@ -35,7 +35,10 @@
 @property (nonatomic,assign) NSInteger reconnectedTimes;// 没有数据请求次数
 
 @property (nonatomic,strong) NSMutableArray *bannerArr;
-
+/**
+ *  朋友列表
+ */
+@property (nonatomic,strong) NSMutableArray *friendArr;
 - (UIViewController *)getCurrentVC;
 @end
 

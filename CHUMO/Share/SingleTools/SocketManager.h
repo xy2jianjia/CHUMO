@@ -16,6 +16,7 @@
 //@property (nonatomic, strong) ablock block;// 回调用的
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong) GCDAsyncSocket *client;
+@property (nonatomic,strong) NSMutableArray *friendArr;
 /**
  *  退出im
  */

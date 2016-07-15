@@ -87,6 +87,9 @@
  *  文件时长（针对音频和视频文件）
  */
 @property (nonatomic,assign) CGFloat fileDuration;
-
+/**
+ *  朋友关系1：普通，2：免费
+ */
+@property (nonatomic,assign) NSInteger friendType;
 
 @end

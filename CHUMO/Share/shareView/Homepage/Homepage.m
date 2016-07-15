@@ -1494,7 +1494,7 @@
                     item.lat = 0;
                     item.lng = 0;
                     item.socketType = 1001;
-                    
+                    item.friendType = 1;
                     if ([_item.b143 integerValue] ==1) {
                         [SocketManager asyncSendMessageWithMessageModel:item];
                     }

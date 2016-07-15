@@ -100,7 +100,7 @@
  *  @param queue
  *  @param completed  
  */
-+ (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed;
++ (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendType:(NSInteger)friendType friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed;
 /**
  *  1.1	检查用户是否有兑换话费权限
  *
@@ -279,6 +279,12 @@
  *  @param completed 
  */
 + (void)asyncGetFriendListWithPage:(NSString *)page queue:(dispatch_queue_t )queue completed:(void(^)(NSArray *friendList , NSInteger code,NSInteger hasNext))completed;
-
-
+/**
+ *  获取简要用户信息
+ *
+ *  @param p2
+ *  @param queue
+ *  @param completed 
+ */
++ (void)asyncGetSimPleUserInfoWithUserId:(NSString *)p2 queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *info,DHUserInfoModel *userInfoModel))completed;
 @end

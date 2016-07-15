@@ -99,7 +99,7 @@
                     NSArray *arr10 = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_recommendHasSendIds",userId]];
                     
                     if (![arr10 containsObject:[NSNumber numberWithInteger:[userInfo1.b80 integerValue]]]) {
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(50 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                             if (userInfo1) {
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     
@@ -173,6 +173,7 @@
 // 新版推荐
 -(void)recommendOnclickedAnswerBtnCalledBackWithBtnTag:(NSInteger)tag targetUserInfo:(DHUserInfoModel *)targetUserInfo{
     if (tag == 1001 || tag == 1002) {
+//        [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:targetUserInfo];
         [self sendMessageWithUserinfo:targetUserInfo];
     }
     if (!self.recommendTimer) {
@@ -197,62 +198,83 @@
         return;
     }
 }
+
+//- (void)asyncGetFriendsListIsLoadMore:(BOOL)isLoadMore completed:(void(^)(NSArray *friendList, NSInteger code))completed{
+//    NSInteger page = self.friendArr.count / 20;
+//    if (isLoadMore) {
+//        if (page == 0) {
+//            return;
+//        }
+//    }
+//    __weak typeof (&*self )weakSelf = self;
+//    [HttpOperation asyncGetFriendListWithPage:[NSString stringWithFormat:@"%ld",page + 1] queue:nil completed:^(NSArray *friendList, NSInteger code,NSInteger hasNext) {
+//        [self.friendArr addObjectsFromArray:friendList];
+//        if (hasNext == 1) {
+//            [weakSelf asyncGetFriendsListIsLoadMore:YES completed:completed];
+//        }
+//        completed(self.friendArr,code);
+//    }];
+//}
+
 - (void)sendMessageWithUserinfo:(DHUserInfoModel *)userinfo{
-    
-    NSString *date = [[[DHTool shareTool] stringFromDate:[NSDate date]] substringToIndex:10];
-    NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-    NSString *sessionId = [NSGetTools getUserSessionId];
-    [[NSUserDefaults standardUserDefaults] setInteger:++self.sendMessageTimes forKey:[NSString stringWithFormat:@"recommend_sendMsg-%@-%@",date,userId]];
-    
-//    RobotMessageModel *randomMsg = [DHRobotMessageDao getRobotMessageWithCurrentUserId:userId messageType:@"1"];
-    NSDictionary *para = [NSDictionary dictionaryWithObjectsAndKeys:sessionId,@"p1",userId,@"p2",@"1",@"a78", nil];
-    [HttpOperation asyncGetMessagesOfMySelfWithPara:para completed:^(NSArray *messageArray) {
-        if (messageArray.count > 0) {
-            NSInteger random_index = [self randomIndexWithMaxNumber:messageArray.count - 1  min:0];
-            RobotMessageModel *randomMsg = nil;
-            if (random_index <= messageArray.count - 1) {
-                randomMsg = [messageArray objectAtIndex:random_index];
-            }
-            if (randomMsg && [randomMsg.b14 length] > 0 && ![randomMsg.b14 isEqualToString:@"(null)"]) {
-                NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-                NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-                [fmt setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                NSString *fmtDate = [fmt stringFromDate:dat];
-                DHMessageModel *_msg = [[DHMessageModel alloc] init];
-                _msg.toUserAccount = userinfo.b80;
-                _msg.roomName = userinfo.b52;
-                _msg.roomCode = userinfo.b80;
-                _msg.message = randomMsg.b14;
-                _msg.fromUserDevice = [NSString stringWithFormat:@"%@",[NSNumber numberWithInt:2]];// 1:安卓 2:苹果 3:windowPhone
-                _msg.timeStamp = fmtDate;
-                
-                _msg.fromUserAccount = userId;
-                _msg.messageType = @"1";
-                _msg.messageId = [self configUUid];// 消息ID
-                _msg.targetId = userinfo.b80;
-                _msg.userId = userId;
-                //同城推荐消息
-                _msg.targetUserType=@"4";
-                // 不是机器人消息
-                _msg.robotMessageType = @"-1";
-                _msg.isRead = @"2";
-                _msg.fileUrl = @"";
-                _msg.length = 0;
-                _msg.fileName = @"";
-                _msg.addr = @"";
-                _msg.lat = 0;
-                _msg.lng = 0;
-                _msg.socketType = 1001;
-                // 存储到数据库
-                if (![DHMessageDao checkMessageWithMessageId:_msg.messageId targetId:_msg.targetId]) {
-                    [DHMessageDao insertMessageDataDBWithModel:_msg userId:[NSString stringWithFormat:@"%@",userId]];
+//    [self asyncGetFriendsListIsLoadMore:NO completed:^(NSArray *friendList, NSInteger code) {
+        NSString *date = [[[DHTool shareTool] stringFromDate:[NSDate date]] substringToIndex:10];
+        NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+        NSString *sessionId = [NSGetTools getUserSessionId];
+        [[NSUserDefaults standardUserDefaults] setInteger:++self.sendMessageTimes forKey:[NSString stringWithFormat:@"recommend_sendMsg-%@-%@",date,userId]];
+        
+        //    RobotMessageModel *randomMsg = [DHRobotMessageDao getRobotMessageWithCurrentUserId:userId messageType:@"1"];
+        NSDictionary *para = [NSDictionary dictionaryWithObjectsAndKeys:sessionId,@"p1",userId,@"p2",@"1",@"a78", nil];
+        [HttpOperation asyncGetMessagesOfMySelfWithPara:para completed:^(NSArray *messageArray) {
+            if (messageArray.count > 0) {
+                NSInteger random_index = [self randomIndexWithMaxNumber:messageArray.count - 1  min:0];
+                RobotMessageModel *randomMsg = nil;
+                if (random_index <= messageArray.count - 1) {
+                    randomMsg = [messageArray objectAtIndex:random_index];
                 }
-                
-                [SocketManager asyncSendMessageWithMessageModel:_msg];
-                [Mynotification postNotificationName:@"new_didSendedRecommendMessage" object:_msg];
+                if (randomMsg && [randomMsg.b14 length] > 0 && ![randomMsg.b14 isEqualToString:@"(null)"]) {
+                    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+                    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
+                    [fmt setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                    NSString *fmtDate = [fmt stringFromDate:dat];
+                    DHMessageModel *_msg = [[DHMessageModel alloc] init];
+                    _msg.toUserAccount = userinfo.b80;
+                    _msg.roomName = userinfo.b52;
+                    _msg.roomCode = userinfo.b80;
+                    _msg.message = randomMsg.b14;
+                    _msg.fromUserDevice = [NSString stringWithFormat:@"%@",[NSNumber numberWithInt:2]];// 1:安卓 2:苹果 3:windowPhone
+                    _msg.timeStamp = fmtDate;
+                    
+                    _msg.fromUserAccount = userId;
+                    _msg.messageType = @"1";
+                    _msg.messageId = [self configUUid];// 消息ID
+                    _msg.targetId = userinfo.b80;
+                    _msg.userId = userId;
+                    //同城推荐消息
+                    _msg.targetUserType=@"4";
+                    // 不是机器人消息
+                    _msg.robotMessageType = @"-1";
+                    _msg.isRead = @"2";
+                    _msg.fileUrl = @"";
+                    _msg.length = 0;
+                    _msg.fileName = @"";
+                    _msg.addr = @"";
+                    _msg.lat = 0;
+                    _msg.lng = 0;
+                    _msg.socketType = 1001;
+                    _msg.friendType = 2;
+                    // 存储到数据库
+                    if (![DHMessageDao checkMessageWithMessageId:_msg.messageId targetId:_msg.targetId]) {
+                        [DHMessageDao insertMessageDataDBWithModel:_msg userId:[NSString stringWithFormat:@"%@",userId]];
+                    }
+                    
+                    [SocketManager asyncSendMessageWithMessageModel:_msg];
+                    [Mynotification postNotificationName:@"new_didSendedRecommendMessage" object:_msg];
+                }
             }
-        }
-    }];
+        }];
+//    }];
+    
 }
 - (void)getRobotMessageWithPara:(NSDictionary *)para1 completed:(void(^)(NSArray *array))completed{
     [RobotMessageHttpDao asyncGetMessagesWithPara:para1 completed:^(NSArray *array) {

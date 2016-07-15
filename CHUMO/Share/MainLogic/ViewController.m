@@ -121,16 +121,16 @@
 //            }];
 //        });
 //    }
-//    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"recommed_system_data"];
-//    for (NSDictionary *temp in arr) {
-//        // 发消息次数
-//        if ([[temp objectForKey:@"b20"] isEqualToString:@"button_one_times"]) {
-//            self.sendMessageTotalTimes = [[temp objectForKey:@"b22"] integerValue];
-//        }else if([[temp objectForKey:@"b20"] isEqualToString:@"button_two_times"]){
-//            // 推荐总次数
-//            self.recommendTotalTimes = [[temp objectForKey:@"b22"] integerValue];
-//        }
-//    }
+    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"recommed_system_data"];
+    for (NSDictionary *temp in arr) {
+        // 发消息次数
+        if ([[temp objectForKey:@"b20"] isEqualToString:@"button_one_times"]) {
+            self.sendMessageTotalTimes = [[temp objectForKey:@"b22"] integerValue];
+        }else if([[temp objectForKey:@"b20"] isEqualToString:@"button_two_times"]){
+            // 推荐总次数
+            self.recommendTotalTimes = [[temp objectForKey:@"b22"] integerValue];
+        }
+    }
     
     
 #warning mark 更新
@@ -177,23 +177,41 @@
 }
 
 
-
+//- (void)asyncGetFriendsListIsLoadMore:(BOOL)isLoadMore completed:(void(^)(NSArray *friendList, NSInteger code))completed{
+//    NSInteger page = self.friendArr.count / 20;
+//    if (isLoadMore) {
+//        if (page == 0) {
+//            return;
+//        }
+//    }
+//    __weak typeof (&*self )weakSelf = self;
+//    [HttpOperation asyncGetFriendListWithPage:[NSString stringWithFormat:@"%ld",page + 1] queue:nil completed:^(NSArray *friendList, NSInteger code,NSInteger hasNext) {
+//        [self.friendArr addObjectsFromArray:friendList];
+//        if (hasNext == 1) {
+//            [weakSelf asyncGetFriendsListIsLoadMore:YES completed:completed];
+//        }
+//        completed(self.friendArr,code);
+//    }];
+//}
 
 - (void)new_didReceiveOnlineMessage:(NSNotification *)notifi{
-    DHMessageModel *msg = notifi.object;
-    // 存储到数据库
-    if (![DHMessageDao checkMessageWithMessageId:msg.messageId targetId:msg.targetId]) {
-        [DHMessageDao insertMessageDataDBWithModel:msg userId:[NSString stringWithFormat:@"%@",msg.userId]];
-    }
-    DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:msg.targetId];
-    BOOL isblack = [DHBlackListDao checkBlackListUserWithUsertId:userInfo.b80];
-    if (isblack) {
-//        [self showHint:@"已经被拉黑，不接收此人的消息"];
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self loadBadgeValue];
-        });
-    }
+//    [self asyncGetFriendsListIsLoadMore:NO completed:^(NSArray *friendList, NSInteger code) {
+        DHMessageModel *msg = notifi.object;
+        // 存储到数据库
+        if (![DHMessageDao checkMessageWithMessageId:msg.messageId targetId:msg.targetId]) {
+            [DHMessageDao insertMessageDataDBWithModel:msg userId:[NSString stringWithFormat:@"%@",msg.userId]];
+        }
+        DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:msg.targetId];
+        BOOL isblack = [DHBlackListDao checkBlackListUserWithUsertId:userInfo.b80];
+        if (isblack) {
+            //        [self showHint:@"已经被拉黑，不接收此人的消息"];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadBadgeValue];
+            });
+        }
+//    }];
+    
 }
 //- (void)configUserHeaderImage{
 //    dispatch_async(dispatch_get_main_queue(), ^{

@@ -366,6 +366,7 @@
                     item.lat = 0;
                     item.lng = 0;
                     item.socketType = 1001;
+                    item.friendType = 1;
                     //是否是机器人
                     if ([model.b143 integerValue] ==1) {
                         [SocketManager asyncSendMessageWithMessageModel:item];

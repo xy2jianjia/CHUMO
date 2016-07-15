@@ -107,8 +107,9 @@ static SocketManager* _socketManager = nil;
                 DHMessageModel *item = [self asyncDidreceiveOnlineMessageWithObject:receiveObject];
                 DHMsgPlaySound *sound = [[DHMsgPlaySound alloc]initSystemSoundWithName:nil SoundType:nil];
                 [sound play];
+//                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:item];
                 [Mynotification postNotificationName:NEW_DIDRECEIVE_ONLINE_MESSAGE_NOTIFICATION object:item];
-                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:item];
+                
                 
             }
                 break;
@@ -118,8 +119,9 @@ static SocketManager* _socketManager = nil;
                 NSArray *arr = [self asyncDidReceiveOffLineMessageWithObject:receiveObject];
                 DHMsgPlaySound *sound = [[DHMsgPlaySound alloc]initSystemSoundWithName:nil SoundType:nil];
                 [sound play];
+//                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:arr];
                 [Mynotification postNotificationName:NEW_DIDRECEIVE_OFFLINE_MESSAGE_NOTIFICATION object:arr];
-                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:arr];
+                
             }
                 break;
             default:
@@ -286,7 +288,7 @@ static SocketManager* _socketManager = nil;
 - (void)asyncSendMessageWithMessageModel:(DHMessageModel *)message{
     if (message) {
         
-        [self asyncSaveFrienShipWithFriendId:message.targetId];
+        [self asyncSaveFrienShipWithFriendId:message.targetId friendType:message.friendType];
         
         NSMutableDictionary *sendinfo = [NSMutableDictionary dictionary];
         
@@ -304,7 +306,7 @@ static SocketManager* _socketManager = nil;
         [messageInfo setObject:[message.addr length] == 0?@"":message.addr forKey:@"addr"];
         [messageInfo setObject:[NSNumber numberWithDouble:message.lat] forKey:@"lat"];
         [messageInfo setObject:[NSNumber numberWithDouble:message.lng] forKey:@"lng"];
-        
+//        [messageInfo setObject:[NSNumber numberWithDouble:message.friendType] forKey:@"a78"];
 //#warning 测试id 104134401,104131201
 //        [messageInfo setObject:@"104134401" forKey:@"toId"];
         NSInteger socketType = message.socketType;
@@ -323,19 +325,44 @@ static SocketManager* _socketManager = nil;
  *
  *  @param friendId 
  */
-- (void)asyncSaveFrienShipWithFriendId:(NSString *)friendId{
-    
-    DHUserInfoModel *targetUserinfo = [DHUserInfoDao getUserWithCurrentUserId:friendId];
-    if (friendId && targetUserinfo) {
-        [HttpOperation asyncSaveFriendshipWithFriendId:friendId friendName:targetUserinfo.b52 queue:dispatch_get_main_queue() completed:^(NSDictionary *registerInfo) {
-            
-        }];
+- (void)asyncSaveFrienShipWithFriendId:(NSString *)friendId friendType:(NSInteger )friendType{
+    if (friendType == 0) {
+        friendType = 1;
     }
+    
+    __weak typeof (&*self )weakSelf = self;
+    [HttpOperation asyncGetSimPleUserInfoWithUserId:friendId queue:dispatch_get_main_queue() completed:^(NSDictionary *info, DHUserInfoModel *userInfoModel) {
+        if (friendId && userInfoModel) {
+            [HttpOperation asyncSaveFriendshipWithFriendId:friendId friendType:friendType friendName:userInfoModel.b52 queue:dispatch_get_main_queue() completed:^(NSDictionary *registerInfo) {
+                // 将好友关系保存到本地
+                self.friendArr = [NSMutableArray array];
+                [weakSelf asyncGetFriendsListIsLoadMore:NO completed:^(NSArray *friendList, NSInteger code) {
+                    
+                }];
+            }];
+        }
+    }];
+    
     
     
     
 }
-
+- (void)asyncGetFriendsListIsLoadMore:(BOOL)isLoadMore completed:(void(^)(NSArray *friendList, NSInteger code))completed{
+    NSInteger page = self.friendArr.count / 20;
+    if (isLoadMore) {
+        if (page == 0) {
+            return;
+        }
+    }
+    __weak typeof (&*self )weakSelf = self;
+    [HttpOperation asyncGetFriendListWithPage:[NSString stringWithFormat:@"%ld",page + 1] queue:nil completed:^(NSArray *friendList, NSInteger code,NSInteger hasNext) {
+        [self.friendArr addObjectsFromArray:friendList];
+        if (hasNext == 1) {
+            [weakSelf asyncGetFriendsListIsLoadMore:YES completed:completed];
+        }
+        completed(self.friendArr,code);
+    }];
+}
 /**
  *  发送消息 2016年05月04日11:57:58 --by大海
  *

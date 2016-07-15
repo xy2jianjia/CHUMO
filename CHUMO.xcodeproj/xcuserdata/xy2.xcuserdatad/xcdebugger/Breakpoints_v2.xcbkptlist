@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/SingleTools/SocketManager.m"
-            timestampString = "490239635.477347"
+            timestampString = "490258048.850943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "-asyncSendMessageWithMessageModel:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/SingleTools/SocketManager.m"
-            timestampString = "490239635.477347"
+            timestampString = "490258048.850943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-configMessageWithObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/SingleTools/SocketManager.m"
-            timestampString = "490239635.477347"
+            timestampString = "490258048.850943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "-configMessageWithObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
-            timestampString = "490240848.065965"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1621"
-            endingLineNumber = "1621"
+            startingLineNumber = "1624"
+            endingLineNumber = "1624"
             landmarkName = "-saveChatImageWithImage:timeStamp:targetId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -596,11 +596,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/FirstPage/EyeLuckViewController.m"
-            timestampString = "485426686.011477"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "989"
-            endingLineNumber = "989"
+            startingLineNumber = "991"
+            endingLineNumber = "991"
             landmarkName = "-getSystemDataInfos"
             landmarkType = "5">
          </BreakpointContent>
@@ -964,11 +964,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
-            timestampString = "490240848.065965"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1639"
-            endingLineNumber = "1639"
+            startingLineNumber = "1642"
+            endingLineNumber = "1642"
             landmarkName = "@implementation ChatController"
             landmarkType = "3">
          </BreakpointContent>
@@ -980,11 +980,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
-            timestampString = "490240848.065965"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1298"
-            endingLineNumber = "1298"
+            startingLineNumber = "1299"
+            endingLineNumber = "1299"
             landmarkName = "-audioPlayerDidFinishPlaying:successfully:"
             landmarkType = "5">
          </BreakpointContent>
@@ -996,11 +996,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
-            timestampString = "490240848.065965"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1577"
-            endingLineNumber = "1577"
+            startingLineNumber = "1580"
+            endingLineNumber = "1580"
             landmarkName = "-openCamera"
             landmarkType = "5">
          </BreakpointContent>
@@ -1044,11 +1044,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
-            timestampString = "490240848.065965"
+            timestampString = "490260992.537974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1630"
-            endingLineNumber = "1630"
+            startingLineNumber = "1633"
+            endingLineNumber = "1633"
             landmarkName = "-getImageFromShandBoxWithTimeStamp:targetId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1364,11 +1364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1120"
-            endingLineNumber = "1120"
+            startingLineNumber = "1122"
+            endingLineNumber = "1122"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
             <Locations>
@@ -1412,11 +1412,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1122"
-            endingLineNumber = "1122"
+            startingLineNumber = "1124"
+            endingLineNumber = "1124"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1428,11 +1428,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1129"
-            endingLineNumber = "1129"
+            startingLineNumber = "1131"
+            endingLineNumber = "1131"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1444,11 +1444,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1137"
-            endingLineNumber = "1137"
+            startingLineNumber = "1139"
+            endingLineNumber = "1139"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1460,11 +1460,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1140"
-            endingLineNumber = "1140"
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1476,11 +1476,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985551.882453"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1134"
-            endingLineNumber = "1134"
+            startingLineNumber = "1136"
+            endingLineNumber = "1136"
             landmarkName = "-asyncLive_GetChanelListWithCurPage:pageSize:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1508,11 +1508,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985297.8219"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1023"
-            endingLineNumber = "1023"
+            startingLineNumber = "1025"
+            endingLineNumber = "1025"
             landmarkName = "-asyncLive_OpenLiveWithTargetUserId:nickName:portrait:type:delegate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1540,11 +1540,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "489985647.281645"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1082"
-            endingLineNumber = "1082"
+            startingLineNumber = "1084"
+            endingLineNumber = "1084"
             landmarkName = "-asyncLive_ColsedLiveWithChanelId:chanelName:type:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1636,11 +1636,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490070532.841676"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1165"
-            endingLineNumber = "1165"
+            startingLineNumber = "1167"
+            endingLineNumber = "1167"
             landmarkName = "-asyncLiveIM_GetLoginTokenWithQueueueue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1668,11 +1668,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490073994.041452"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1174"
-            endingLineNumber = "1174"
+            startingLineNumber = "1176"
+            endingLineNumber = "1176"
             landmarkName = "-asyncLiveIM_GetLoginTokenWithQueueueue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1732,11 +1732,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490089117.092225"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1213"
-            endingLineNumber = "1213"
+            startingLineNumber = "1215"
+            endingLineNumber = "1215"
             landmarkName = "-asyncLiveIM_SendMessageWithRoomId:resendFlag:msgModel:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1764,11 +1764,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490089874.685773"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1210"
-            endingLineNumber = "1210"
+            startingLineNumber = "1212"
+            endingLineNumber = "1212"
             landmarkName = "-asyncLiveIM_SendMessageWithRoomId:resendFlag:msgModel:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1796,11 +1796,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490091681.336903"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1029"
-            endingLineNumber = "1029"
+            startingLineNumber = "1031"
+            endingLineNumber = "1031"
             landmarkName = "-requestFinished:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1812,11 +1812,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490091891.975992"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1038"
-            endingLineNumber = "1038"
+            startingLineNumber = "1040"
+            endingLineNumber = "1040"
             landmarkName = "-requestFinished:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1844,7 +1844,7 @@
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490240965.777876"
+                  timestampString = "490263522.540017"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -1859,7 +1859,7 @@
                   moduleName = "CHUMO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/SecondPage/Live/LiveInfo/DHHostLiveInfoViewController.m"
-                  timestampString = "490240965.778014"
+                  timestampString = "490263522.540148"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -2372,11 +2372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/SingleTools/SocketManager.m"
-            timestampString = "490239635.477347"
+            timestampString = "490258048.850943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "-configMessageWithObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2468,11 +2468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490191387.355454"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1244"
-            endingLineNumber = "1244"
+            startingLineNumber = "1246"
+            endingLineNumber = "1246"
             landmarkName = "-asyncGetFriendListWithPage:queue:completed:"
             landmarkType = "5">
             <Locations>
@@ -2516,11 +2516,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490192372.382824"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1253"
-            endingLineNumber = "1253"
+            startingLineNumber = "1255"
+            endingLineNumber = "1255"
             landmarkName = "-asyncGetFriendListWithPage:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2532,11 +2532,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490192372.382824"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1265"
-            endingLineNumber = "1265"
+            startingLineNumber = "1267"
+            endingLineNumber = "1267"
             landmarkName = "-asyncGetFriendListWithPage:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2548,11 +2548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
-            timestampString = "490192372.382824"
+            timestampString = "490263249.24592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1259"
-            endingLineNumber = "1259"
+            startingLineNumber = "1261"
+            endingLineNumber = "1261"
             landmarkName = "-asyncGetFriendListWithPage:queue:completed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2576,7 +2576,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CHUMO/ThirdPage/DHChat/Controller/ChatController.m"
@@ -2586,6 +2586,438 @@
             startingLineNumber = "609"
             endingLineNumber = "609"
             landmarkName = "-isAllReadyToSendMessage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258186.626822"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController(Recommend) asyncLoadRecommendIsEmpty:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/ViewController+Recommend.m"
+                  timestampString = "490261825.260345"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "981">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[ViewController(Recommend) asyncLoadRecommendIsEmpty:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/ViewController+Recommend.m"
+                  timestampString = "490261825.260716"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258190.972565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258213.427321"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258220.179581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258236.820011"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258282.141659"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490258295.15813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-asyncLoadRecommendIsEmpty:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/ViewController+Recommend.m"
+            timestampString = "490259144.626754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-sendMessageWithUserinfo:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController(Recommend) sendMessageWithUserinfo:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/ViewController+Recommend.m"
+                  timestampString = "490263522.546833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "812">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[ViewController(Recommend) sendMessageWithUserinfo:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/ViewController+Recommend.m"
+                  timestampString = "490263522.546982"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
+            timestampString = "490260969.471746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
+            landmarkName = "-asyncSaveFriendshipWithFriendId:friendType:friendName:queue:completed:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HttpOperation asyncSaveFriendshipWithFriendId:friendType:friendName:queue:completed:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/HttpOperation.m"
+                  timestampString = "490263522.547684"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "630"
+                  endingLineNumber = "630"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__87-[HttpOperation asyncSaveFriendshipWithFriendId:friendType:friendName:queue:completed:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/MainLogic/HttpOperation.m"
+                  timestampString = "490263522.547845"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "630"
+                  endingLineNumber = "630"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/MainLogic/HttpOperation.m"
+            timestampString = "490263249.24592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "636"
+            endingLineNumber = "636"
+            landmarkName = "-asyncSaveFriendshipWithFriendId:friendType:friendName:queue:completed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/SocketManager.m"
+            timestampString = "490263130.996927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
+            landmarkName = "-asyncSaveFrienShipWithFriendId:friendType:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.54972"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.550028"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/SocketManager.m"
+            timestampString = "490263130.996927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "-asyncSaveFrienShipWithFriendId:friendType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/SocketManager.m"
+            timestampString = "490263328.781137"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "-asyncSaveFrienShipWithFriendId:friendType:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]_block_invoke_2"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.553443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "339"
+                  endingLineNumber = "339"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]_block_invoke_3"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.55378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "341"
+                  endingLineNumber = "341"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/SocketManager.m"
+            timestampString = "490263130.996927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
+            landmarkName = "-asyncSaveFrienShipWithFriendId:friendType:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]_block_invoke"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.555241"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "336"
+                  endingLineNumber = "336"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[SocketManager asyncSaveFrienShipWithFriendId:friendType:]_block_invoke_2"
+                  moduleName = "CHUMO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xy2/Desktop/SVNCHUMODemo/CHUMOTOUCH/CHUMO/CHUMO/Share/SingleTools/SocketManager.m"
+                  timestampString = "490263522.555702"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "336"
+                  endingLineNumber = "336"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CHUMO/Share/SingleTools/SocketManager.m"
+            timestampString = "490263328.781137"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "-asyncSaveFrienShipWithFriendId:friendType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

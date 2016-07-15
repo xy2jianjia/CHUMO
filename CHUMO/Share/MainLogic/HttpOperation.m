@@ -614,16 +614,17 @@
     }];
 }
 
-+ (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed{
-    [[HttpOperation shareInstance] asyncSaveFriendshipWithFriendId:friendId friendName:friendName queue:queue completed:completed];
++ (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendType:(NSInteger)friendType friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed{
+    [[HttpOperation shareInstance] asyncSaveFriendshipWithFriendId:friendId friendType:friendType friendName:friendName queue:queue completed:completed];
 }
-- (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed{
+- (void)asyncSaveFriendshipWithFriendId:(NSString *)friendId friendType:(NSInteger)friendType friendName:(NSString *)friendName queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *registerInfo))completed{
     
     AFHTTPRequestOperationManager *manger = [self getManager];
     
     NSMutableDictionary *appinfo = [[NSGetTools getAppInfoDict] mutableCopy];
     [appinfo setObject:friendId forKey:@"a25"];
     [appinfo setObject:friendName forKey:@"a26"];
+    [appinfo setObject:[NSString stringWithFormat:@"%ld",friendType] forKey:@"a78"];
     NSString *url = [NSString stringWithFormat:@"%@f_106_10_2.service",kServerAddressTest2];
     url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     [manger GET:url parameters:appinfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -633,6 +634,7 @@
         NSDictionary *infoDic = [NSGetTools parseJSONStringToNSDictionary:jsonStr];// 转字典
         NSNumber *codeNum = infoDic[@"code"];
         NSDictionary *dict2 = infoDic[@"body"];
+        completed(dict2);
         //  注册成功,将信息保存到服务器
         if ([codeNum integerValue] == 200) {
             
@@ -1268,7 +1270,39 @@
         
     }];
 }
-
++ (void)asyncGetSimPleUserInfoWithUserId:(NSString *)p2 queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *info,DHUserInfoModel *userInfoModel))completed{
+    [[HttpOperation shareInstance] asyncGetSimPleUserInfoWithUserId:p2 queue:queue completed:completed];
+}
+// 请求用户信息
+- (void)asyncGetSimPleUserInfoWithUserId:(NSString *)p2 queue:(dispatch_queue_t )queue completed:(void(^)(NSDictionary *info,DHUserInfoModel *userInfoModel))completed{
+    NSString *p1 = [NSGetTools getUserSessionId];
+    AFHTTPRequestOperationManager *manger = [self getManager];
+    NSString *appinfoStr = [NSGetTools getAppInfoString];
+    NSString *url = [NSString stringWithFormat:@"%@/f_108_10_1.service?p1=%@&p2=%@&%@",kServerAddressTest2,p1,p2,appinfoStr];
+    url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    [manger GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *datas = responseObject;
+        NSString *result = [[NSString alloc] initWithData:datas encoding:NSUTF8StringEncoding];
+        NSString *jsonStr = [NSGetTools DecryptWith:result];// 解密
+        NSDictionary *infoDic = [NSGetTools parseJSONStringToNSDictionary:jsonStr];// 转字典
+        NSNumber *codeNum = infoDic[@"code"];
+        if ([codeNum intValue] == 200) {
+            NSDictionary *dict2 = infoDic[@"body"];
+            DHUserInfoModel *item = [[DHUserInfoModel alloc]init];
+            [item setValuesForKeysWithDictionary:dict2];
+            if (![DHUserInfoDao checkUserWithUsertId:item.b80]) {
+                [DHUserInfoDao insertUserToDBWithItem:item];
+            }else{
+                [DHUserInfoDao updateUserToDBWithItem:item userId:item.b80];
+            }
+            dispatch_async(queue == nil ? dispatch_get_main_queue():queue, ^{
+                completed(dict2,item);
+            });
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
 
 
 @end

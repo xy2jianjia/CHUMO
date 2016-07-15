@@ -79,9 +79,9 @@
         }
     }];
 }
-- (void)new_didReLoadFriendDataArr:(NSNotification *)notifi{
-    [self asyncGetFriendsListIsLoadMore:NO];
-}
+//- (void)new_didReLoadFriendDataArr:(NSNotification *)notifi{
+//    [self asyncGetFriendsListIsLoadMore:NO];
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=kUIColorFromRGB(0xffffff);
@@ -94,7 +94,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(havingNetworking:) name:@"AFNetworkReachabilityStatusYes" object:nil];
 //    [Mynotification addObserver:self selector:@selector(new_didReceiveOfflineMessage:) name:NEW_DIDRECEIVE_OFFLINE_MESSAGE_NOTIFICATION object:nil];
     [Mynotification addObserver:self selector:@selector(new_didSendedRecommendMessage:) name:@"new_didSendedRecommendMessage" object:nil];
-    [Mynotification addObserver:self selector:@selector(new_didReLoadFriendDataArr:) name:@"new_didReLoadFriendDataArr" object:nil];
+//    [Mynotification addObserver:self selector:@selector(new_didReLoadFriendDataArr:) name:@"new_didReLoadFriendDataArr" object:nil];
     self.navigationItem.title = @"信箱";
     NSDictionary *dict = [NSGetTools getCLLocationData];
     self.cityNo = [dict objectForKey:@"a9"];

@@ -712,7 +712,8 @@
         _msg.lat = 0;
         _msg.lng = 0;
         _msg.socketType = 1001;
-        
+        DHUserInfoModel *targetFriend = [DHFriendDao getFriendWithFriendId:_item.targetId];
+        _msg.friendType = [targetFriend.friendType integerValue];
         // 存储到数据库
         if (![DHMessageDao checkMessageWithMessageId:_msg.messageId targetId:_msg.targetId]) {
             [DHMessageDao insertMessageDataDBWithModel:_msg userId:[NSString stringWithFormat:@"%@",userId]];
@@ -721,15 +722,15 @@
         //        EMChatText *txtChat = [[EMChatText alloc] initWithText:text];
         //        EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:txtChat];
         // 生成message 101111601，109112802
-        NSDictionary *system_pm = [NSGetSystemTools getsystem_pm];
-        NSArray *allkeys = [system_pm allKeys];
-        NSString *attr1 = nil;
-        for (NSString *key in allkeys) {
-            if (([key isEqualToString:@"T_"] || [key isEqualToString:@"t_"]) || ([key isEqualToString:@"P_"] || [key isEqualToString:@"p_"])) {
-                attr1 = key;
-                break;
-            }
-        }
+//        NSDictionary *system_pm = [NSGetSystemTools getsystem_pm];
+//        NSArray *allkeys = [system_pm allKeys];
+//        NSString *attr1 = nil;
+//        for (NSString *key in allkeys) {
+//            if (([key isEqualToString:@"T_"] || [key isEqualToString:@"t_"]) || ([key isEqualToString:@"P_"] || [key isEqualToString:@"p_"])) {
+//                attr1 = key;
+//                break;
+//            }
+//        }
         //        EMMessage *message = [[EMMessage alloc] initWithReceiver:[NSString stringWithFormat:@"%@%@",attr1,self.item.targetId] bodies:@[body]];
         //        message.messageType = eMessageTypeChat; // 设置为单聊消息
         //        id <IChatManager> chatManager = [[EaseMob sharedInstance] chatManager];
@@ -1343,6 +1344,8 @@
             item.lat = 0;
             item.lng = 0;
             item.socketType = 5003;
+            DHUserInfoModel *targetFriend = [DHFriendDao getFriendWithFriendId:_item.targetId];
+            item.friendType = [targetFriend.friendType integerValue];
             AVURLAsset* audioAsset =[AVURLAsset URLAssetWithURL:[NSURL URLWithString:item.fileUrl] options:nil];
             CMTime audioDuration = audioAsset.duration;
             float audioDurationSeconds =CMTimeGetSeconds(audioDuration);
@@ -1689,6 +1692,8 @@
         item.lat = 0;
         item.lng = 0;
         item.socketType = 5001;
+        DHUserInfoModel *targetFriend = [DHFriendDao getFriendWithFriendId:_item.targetId];
+        item.friendType = [targetFriend.friendType integerValue];
         [SocketManager asyncSendMessageWithMessageModel:item];
         // 存储到数据库
         if (![DHMessageDao checkMessageWithMessageId:item.messageId targetId:item.targetId]) {
