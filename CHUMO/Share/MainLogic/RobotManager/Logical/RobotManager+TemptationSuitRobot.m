@@ -11,7 +11,7 @@
 @implementation RobotManager (TemptationSuitRobot)
 - (void)temptation_configSuitRobot{
     __weak RobotManager *weakSelf = self;
-    NSInteger timeInterval = [self randomIndexWithMaxNumber:5 min:1];
+    NSInteger timeInterval = [self randomIndexWithMaxNumber:2 min:0];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * 1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SuitRobotHttpDao asyncGetSuitRobotsWithType:@"2" completed:^(NSArray *messageArray) {
             self.temptationSuitRobotArr = @[].mutableCopy;
@@ -63,7 +63,19 @@
             [UserHttpDao asyncGetUserInfoWithPara:para completed:^(NSDictionary *userInfo, DHUserInfoModel *userInfoModel) {
                 [weakSelf temptation_suit_sendMessageWithCurrentUserInfo:currentUserInfo targetRobot:userInfoModel nextMessage:randomMessage completed:^(DHMessageModel *lastMessage) {
                     if (lastMessage) {
-                        [self.temptationSuitRobotArr removeObject:randomMessage];
+                        NSArray *arr1 = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_suit_temptation_hasSendIds",userId]];
+                        NSMutableArray *arr = nil;
+                        if (arr1) {
+                            arr = [NSMutableArray arrayWithArray:arr1];
+                        }else{
+                            arr = [NSMutableArray array];
+                        }
+                        NSNumber *lastId = (NSNumber *)randomMessage.b27;
+                        if (![arr containsObject:lastId]) {
+                            [arr addObject:lastId];
+                            [[NSUserDefaults standardUserDefaults] setObject:arr forKey:[NSString stringWithFormat:@"%@_suit_temptation_hasSendIds",userId]];
+                        }
+                        [self.temptationSuitRobotArr removeObject:dict];
                         if (self.temptationSuitRobotArr.count == 0) {
                             
                         }

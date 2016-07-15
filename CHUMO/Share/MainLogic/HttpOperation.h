@@ -11,6 +11,7 @@
 #import "DHLiveInfoModel.h"
 #import "ASIFormDataRequest.h"
 #import "DHLiveImMsgModel.h"
+#import "DhFriendModel.h"
 @class HttpOperation;
 
 @protocol HttpOperationDelegate <NSObject>
@@ -271,4 +272,13 @@
  *  @param completed
  */
 + (void)asyncLiveIM_SendMessageWithRoomId:(NSString *)roomId resendFlag:(NSString *)resendFlag msgModel:(DHLiveImMsgModel *)msgModel queue:(dispatch_queue_t )queue completed:(void(^)(DHLiveImMsgModel *msgModel , NSInteger code))completed;
+/**
+ *  好友关系查询
+ *
+ *  @param queue
+ *  @param completed 
+ */
++ (void)asyncGetFriendListWithPage:(NSString *)page queue:(dispatch_queue_t )queue completed:(void(^)(NSArray *friendList , NSInteger code,NSInteger hasNext))completed;
+
+
 @end

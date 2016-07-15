@@ -28,14 +28,7 @@
  *  接收到的消息数组，包括机器人消息和用户消息
  */
 @property (nonatomic,strong) NSMutableArray *recMesgArr;
-//@property (nonatomic,assign) NSInteger timerIndex;
-/**
- *  由哪个机器人发送消息
- */
-//@property (nonatomic,strong) NSString *postMassgeRobotId;
-/**
- *  当前用户信息
- */
+
 
 @end
 
@@ -138,6 +131,8 @@
 //            self.recommendTotalTimes = [[temp objectForKey:@"b22"] integerValue];
 //        }
 //    }
+    
+    
 #warning mark 更新
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self asyncUpgrade];
@@ -180,6 +175,10 @@
     
     
 }
+
+
+
+
 - (void)new_didReceiveOnlineMessage:(NSNotification *)notifi{
     DHMessageModel *msg = notifi.object;
     // 存储到数据库
@@ -572,6 +571,10 @@
             });
             [SocketManager ClientConnectServer];
             [self getUserInfosWithp1:dict2[@"b101"] p2:dict2[@"b80"]];
+            
+            
+            
+            
         }else if ([codeNum intValue] == 207){
             [NSGetTools showAlert:@"密码输入错误"];
         }else if ([codeNum intValue] == 206){
@@ -592,12 +595,7 @@
                 }
             }
             [[NSUserDefaults standardUserDefaults] synchronize];
-//            [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
-//                if (!error && info) {
-//                    NSLog(@"退出成功");
-//                }
-//            } onQueue:nil];
-// 连接socket
+            
             
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -13,6 +13,7 @@
 #import "DHBlackListDao.h"
 #import "DHActivityAlertView.h"
 #import "DHRecommedViewV1.h"
+
 @interface ViewController : UITabBarController<UIAlertViewDelegate,DHActivityAlertViewDelegate,DHRecommedViewV1Delegate>
 // 定位使用
 @property(nonatomic, strong) CLLocationManager *locationManager;

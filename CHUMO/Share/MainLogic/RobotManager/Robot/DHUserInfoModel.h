@@ -118,4 +118,17 @@
 @property (nonatomic,strong) NSString *sayHellTime;
 //招呼类型
 @property (nonatomic,strong) NSString *targetType;
+/**
+ *  好友类型1:普通 2：免费好友
+ */
+@property (nonatomic,strong) NSString *friendType;
+/**
+ *  好友id
+ */
+@property (nonatomic,strong) NSString *b25;
+/**
+ *  好友别名
+ */
+@property (nonatomic,strong) NSString *b26;
+
 @end

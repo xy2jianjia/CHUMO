@@ -1231,4 +1231,44 @@
 
 #pragma  mark -- 直播结束 2016年07月09日14:57:55
 
++ (void)asyncGetFriendListWithPage:(NSString *)page queue:(dispatch_queue_t )queue completed:(void(^)(NSArray *friendList , NSInteger code,NSInteger hasNext))completed{
+    [[HttpOperation shareInstance] asyncGetFriendListWithPage:page queue:queue completed:completed];
+}
+- (void)asyncGetFriendListWithPage:(NSString *)page queue:(dispatch_queue_t )queue completed:(void(^)(NSArray *friendList , NSInteger code,NSInteger hasNext))completed{
+    __weak typeof (&*self) weakSelf = self;
+    AFHTTPRequestOperationManager *manger = [self getManager];
+    NSMutableDictionary *appinfo = [[NSGetTools getAppInfoDict] mutableCopy];
+    [appinfo setObject:page forKey:@"a95"];
+    NSString *url = [NSString stringWithFormat:@"%@f_106_11_1.service",kServerAddressTest2];
+    url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    [manger GET:url parameters:appinfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *datas = responseObject;
+        NSString *result = [[NSString alloc] initWithData:datas encoding:NSUTF8StringEncoding];
+        NSString *jsonStr = [NSGetTools DecryptWith:result];// 解密
+        NSDictionary *infoDic = [NSGetTools parseJSONStringToNSDictionary:jsonStr];// 转字典
+        NSInteger code = [[infoDic objectForKey:@"code"] integerValue];
+        NSInteger hasNext = [[infoDic objectForKey:@"b96"] integerValue];
+        NSArray *temp = [infoDic objectForKey:@"body"];
+        NSMutableArray *tempArr = [NSMutableArray array];
+        for (NSDictionary *dict in temp) {
+            DHUserInfoModel *item = [[DHUserInfoModel alloc]init];
+            [item setValuesForKeysWithDictionary:dict];
+            item.friendType = [dict objectForKey:@"b78"];
+            [tempArr addObject:item];
+            // 存库
+            if (![DHFriendDao checkFriendWithFriendId:item.b25]) {
+                [DHFriendDao insertFriendToDBWithItem:item];
+            }else{
+                [DHFriendDao updateFriendToDBWithItem:item];
+            }
+        }
+        completed(tempArr,code,hasNext);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
+
+
 @end

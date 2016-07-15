@@ -604,29 +604,45 @@
     
     NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
     DHUserInfoModel *userinfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
-    if ([userinfo.b69 integerValue] == 1) {
-
-        //非同城推荐人员
-        NSArray *array = [DHMessageDao selectMessageDBWithUserId:_item.userId targetId:_item.targetId atIndex:0];
-        
-        if (array.count>0) {
-            DHMessageModel *temp = [array firstObject];
-            if ([temp.targetUserType  isEqualToString:@"4"]) {
-                _msg.targetUserType=@"4";//同城推荐消息
-                return YES;
-            }else{
-                if (nil==[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]) {
-                    [self hideKeyBoard];
-                    DHAlertView *alert1 = [[DHAlertView alloc]init];
-                    [alert1 configAlertWithAlertTitle:@"温馨提示" alertContent:@"开通写信功能，无限畅通聊天~"];
-                    alert1.delegate = self;
-                    [self.view addSubview:alert1];
-                    return NO;
-                }else{
-                    return YES;
-                }
-            }
-        }else{
+    DHUserInfoModel *targetFriend = [DHFriendDao getFriendWithFriendId:_item.targetId];
+    // 免费朋友关系，可以发消息
+    if ([targetFriend.friendType integerValue] == 2) {
+        return YES;
+    }else{
+        if ([userinfo.b69 integerValue] == 1) {
+            
+            //非同城推荐人员
+//            NSArray *array = [DHMessageDao selectMessageDBWithUserId:_item.userId targetId:_item.targetId atIndex:0];
+//            
+//            if (array.count>0) {
+//                DHMessageModel *temp = [array firstObject];
+//                if ([temp.targetUserType  isEqualToString:@"4"]) {
+//                    _msg.targetUserType=@"4";//同城推荐消息
+//                    return YES;
+//                }else{
+//                    if (nil==[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]) {
+//                        [self hideKeyBoard];
+//                        DHAlertView *alert1 = [[DHAlertView alloc]init];
+//                        [alert1 configAlertWithAlertTitle:@"温馨提示" alertContent:@"开通写信功能，无限畅通聊天~"];
+//                        alert1.delegate = self;
+//                        [self.view addSubview:alert1];
+//                        return NO;
+//                    }else{
+//                        return YES;
+//                    }
+//                }
+//            }else{
+//                if (nil==[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]) {
+//                    [self hideKeyBoard];
+//                    DHAlertView *alert1 = [[DHAlertView alloc]init];
+//                    [alert1 configAlertWithAlertTitle:@"温馨提示" alertContent:@"开通写信功能，无限畅通聊天~"];
+//                    alert1.delegate = self;
+//                    [self.view addSubview:alert1];
+//                    return NO;
+//                }else{
+//                    return YES;
+//                }
+//            }
             if (nil==[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]) {
                 [self hideKeyBoard];
                 DHAlertView *alert1 = [[DHAlertView alloc]init];
@@ -637,10 +653,11 @@
             }else{
                 return YES;
             }
+        }else{
+            return YES;
         }
-    }else{
-        return YES;
     }
+    
 }
 //#pragma mark 发送聊天消息
 -(void)sendMsgWithText:(NSString *)text bodyType:(NSString*)bodyType{
@@ -701,8 +718,8 @@
             [DHMessageDao insertMessageDataDBWithModel:_msg userId:[NSString stringWithFormat:@"%@",userId]];
         }
         DHUserInfoModel *userInfo = self.userInfo;
-//        EMChatText *txtChat = [[EMChatText alloc] initWithText:text];
-//        EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:txtChat];
+        //        EMChatText *txtChat = [[EMChatText alloc] initWithText:text];
+        //        EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:txtChat];
         // 生成message 101111601，109112802
         NSDictionary *system_pm = [NSGetSystemTools getsystem_pm];
         NSArray *allkeys = [system_pm allKeys];
@@ -713,11 +730,11 @@
                 break;
             }
         }
-//        EMMessage *message = [[EMMessage alloc] initWithReceiver:[NSString stringWithFormat:@"%@%@",attr1,self.item.targetId] bodies:@[body]];
-//        message.messageType = eMessageTypeChat; // 设置为单聊消息
-//        id <IChatManager> chatManager = [[EaseMob sharedInstance] chatManager];
-//        EMMessage *messageResult = [chatManager asyncSendMessage:message progress:nil];
-//        NSLog(@"%@",messageResult);
+        //        EMMessage *message = [[EMMessage alloc] initWithReceiver:[NSString stringWithFormat:@"%@%@",attr1,self.item.targetId] bodies:@[body]];
+        //        message.messageType = eMessageTypeChat; // 设置为单聊消息
+        //        id <IChatManager> chatManager = [[EaseMob sharedInstance] chatManager];
+        //        EMMessage *messageResult = [chatManager asyncSendMessage:message progress:nil];
+        //        NSLog(@"%@",messageResult);
         
         [SocketManager asyncSendMessageWithMessageModel:_msg];
         
@@ -729,7 +746,7 @@
         msgModel.from = _msg.userId;
         msgModel.messageId = _msg.messageId;
         msgModel.targetId = _item.targetId;
-//        msgModel.fileUrl = @"";// 文本形式不需要文件链接
+        //        msgModel.fileUrl = @"";// 文本形式不需要文件链接
         if (self.frameModelArr.count < 1) {
             msgModel.hiddenTime = NO;
         }else{

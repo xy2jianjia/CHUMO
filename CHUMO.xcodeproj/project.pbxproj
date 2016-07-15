@@ -348,6 +348,8 @@
 		648F62971CA8D97100A0B080 /* DHBlackListDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F62961CA8D97100A0B080 /* DHBlackListDao.m */; };
 		648F629B1CA8E1AF00A0B080 /* DHBlackListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 648F62991CA8E1AF00A0B080 /* DHBlackListCell.m */; };
 		648F62A51CA9462100A0B080 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 648F62A21CA9462100A0B080 /* libMobClickLibrary.a */; };
+		6492E6261D37A9C400080462 /* DhFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492E6251D37A9C400080462 /* DhFriendModel.m */; };
+		6492E62C1D37B1E700080462 /* DHFriendDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492E62B1D37B1E700080462 /* DHFriendDao.m */; };
 		649652B71C93AF29005753BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 649652B61C93AF29005753BF /* main.m */; };
 		64A2E2331CD9F06C00005CD6 /* NSObject+Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2E2321CD9F06C00005CD6 /* NSObject+Chat.m */; };
 		64B1C8501D3333CC0055D1C6 /* DHLiveInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B1C84F1D3333CC0055D1C6 /* DHLiveInfoModel.m */; };
@@ -1804,6 +1806,10 @@
 		648F62A21CA9462100A0B080 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		648F62A31CA9462100A0B080 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		648F62A41CA9462100A0B080 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		6492E6241D37A9C400080462 /* DhFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DhFriendModel.h; sourceTree = "<group>"; };
+		6492E6251D37A9C400080462 /* DhFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DhFriendModel.m; sourceTree = "<group>"; };
+		6492E62A1D37B1E700080462 /* DHFriendDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFriendDao.h; sourceTree = "<group>"; };
+		6492E62B1D37B1E700080462 /* DHFriendDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFriendDao.m; sourceTree = "<group>"; };
 		649652B21C93AF29005753BF /* CHUMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHUMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		649652B61C93AF29005753BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64A2E2311CD9F06C00005CD6 /* NSObject+Chat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Chat.h"; sourceTree = "<group>"; };
@@ -3436,6 +3442,8 @@
 				B73103BA1CFBD7EE00E6BDE3 /* JYSayHelloDao.m */,
 				B747ADD61D26C89A004FE09E /* JYMoveUserDao.h */,
 				B747ADD71D26C89A004FE09E /* JYMoveUserDao.m */,
+				6492E62A1D37B1E700080462 /* DHFriendDao.h */,
+				6492E62B1D37B1E700080462 /* DHFriendDao.m */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -3463,6 +3471,8 @@
 				644B03BC1CCDBB4200D5CBC1 /* MainLogicController.m */,
 				644B03BE1CCDBBE400D5CBC1 /* HttpOperation.h */,
 				644B03BF1CCDBBE400D5CBC1 /* HttpOperation.m */,
+				6492E6241D37A9C400080462 /* DhFriendModel.h */,
+				6492E6251D37A9C400080462 /* DhFriendModel.m */,
 				6481DC9D1D2E4F4200DD1D51 /* DHCollectDao.h */,
 				6481DC9E1D2E4F4200DD1D51 /* DHCollectDao.m */,
 				6481DCA01D2E51DE00DD1D51 /* CollectModel.h */,
@@ -7709,6 +7719,7 @@
 				64D3337C1CA675E70072E43A /* BasicCell.m in Sources */,
 				645775D31D2CDEC100AAB83B /* DHLiveInfoView.m in Sources */,
 				6470DF901CDB6A67002356EB /* YS_HtmlPayViewController.m in Sources */,
+				6492E62C1D37B1E700080462 /* DHFriendDao.m in Sources */,
 				64D334FA1CA68A7D0072E43A /* TouchmeCell.m in Sources */,
 				64D3340C1CA677D70072E43A /* HTBasicdataCell.m in Sources */,
 				6470DEF81CDB4E7C002356EB /* ASIWebPageRequest.m in Sources */,
@@ -8068,6 +8079,7 @@
 				64D334081CA677D70072E43A /* HMarriageCell.m in Sources */,
 				64FB8F281CA3BE460054F7C8 /* NSObject+MJCoding.m in Sources */,
 				B73103C11CFC3C1A00E6BDE3 /* ViewController+Recommend.m in Sources */,
+				6492E6261D37A9C400080462 /* DhFriendModel.m in Sources */,
 				64D334091CA677D70072E43A /* HomeTitleTableViewCell.m in Sources */,
 				6470DFAB1CDB6A67002356EB /* AgreemCell.m in Sources */,
 				6470DEFA1CDB4E7C002356EB /* ASICloudFilesContainer.m in Sources */,

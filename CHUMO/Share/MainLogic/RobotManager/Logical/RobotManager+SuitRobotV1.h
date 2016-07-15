@@ -9,5 +9,5 @@
 #import "RobotManager.h"
 
 @interface RobotManager (SuitRobotV1)
-- (void)configSuitRobot;
+- (void)configSuitRobotV1;
 @end

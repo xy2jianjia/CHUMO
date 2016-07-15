@@ -297,5 +297,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // 网易云信 即时通讯appkey
 #define live_im_appkey @"4f8a92cf70be75cd755123f0b2ffb3c6"
 #define live_im_cer @"ceshipush0712"
+//#import "DhFriendModel.h"
+#import "DHFriendDao.h"
 //#endif
 #endif

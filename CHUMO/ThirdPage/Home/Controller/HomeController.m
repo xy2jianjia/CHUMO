@@ -30,6 +30,10 @@
 @property (nonatomic,strong) UIView *netWrokView;//网络状态
 @property (nonatomic,strong) UIView *netHeadView;
 @property (nonatomic,assign) BOOL isnetWroking;
+/**
+ *  朋友列表
+ */
+@property (nonatomic,strong) NSMutableArray *friendArr;
 @end
 
 @implementation HomeController
@@ -60,6 +64,24 @@
 
     [self readChatData];
 }
+- (void)asyncGetFriendsListIsLoadMore:(BOOL)isLoadMore{
+    NSInteger page = self.friendArr.count / 20;
+    if (isLoadMore) {
+        if (page == 0) {
+            return;
+        }
+    }
+    __weak typeof (&*self )weakSelf = self;
+    [HttpOperation asyncGetFriendListWithPage:[NSString stringWithFormat:@"%ld",page + 1] queue:nil completed:^(NSArray *friendList, NSInteger code,NSInteger hasNext) {
+        [self.friendArr addObjectsFromArray:friendList];
+        if (hasNext == 1) {
+            [weakSelf asyncGetFriendsListIsLoadMore:YES];
+        }
+    }];
+}
+- (void)new_didReLoadFriendDataArr:(NSNotification *)notifi{
+    [self asyncGetFriendsListIsLoadMore:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=kUIColorFromRGB(0xffffff);
@@ -72,6 +94,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(havingNetworking:) name:@"AFNetworkReachabilityStatusYes" object:nil];
 //    [Mynotification addObserver:self selector:@selector(new_didReceiveOfflineMessage:) name:NEW_DIDRECEIVE_OFFLINE_MESSAGE_NOTIFICATION object:nil];
     [Mynotification addObserver:self selector:@selector(new_didSendedRecommendMessage:) name:@"new_didSendedRecommendMessage" object:nil];
+    [Mynotification addObserver:self selector:@selector(new_didReLoadFriendDataArr:) name:@"new_didReLoadFriendDataArr" object:nil];
     self.navigationItem.title = @"信箱";
     NSDictionary *dict = [NSGetTools getCLLocationData];
     self.cityNo = [dict objectForKey:@"a9"];
@@ -87,6 +110,14 @@
     self.isnetWroking=YES;
     
     self.tableView.tableHeaderView=self.netHeadView;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 获取朋友接口
+        self.friendArr = [NSMutableArray array];
+        [self asyncGetFriendsListIsLoadMore:NO];
+    });
+    
+    
 //    [AFNHttpRequestOPManager sharedClient:self];
     
 }

@@ -8,7 +8,7 @@
 
 #import "RobotManager.h"
 #import "RobotManager+Config.h"
-#import "RobotManager+Temptation.h"
+//#import "RobotManager+Temptation.h"
 #import "RobotManager+SuitRobotV1.h"
 #import "RobotManager+TemptationSuitRobot.h"
 @interface RobotManager ()
@@ -64,57 +64,59 @@
 
     // 配套机器人
 #warning 此处没有感叹号 -- by大海2016年06月16日17:44:39
-    if (![manager isAllReady]) {
+    if ([manager isAllReady]) {
         BOOL suit_isTemptationAllReady = [manager suit_isTemptationAllReady];
         #warning 此处没有感叹号 --by 大海 2016年06月25日11:30:16
-        if (!suit_isTemptationAllReady) {
+        if (suit_isTemptationAllReady) {
             [manager temptation_configSuitRobot];
         }
-        [manager configSuitRobot];
-    }else{
-#warning 记得解开
-        BOOL isTemptationAllReady = [manager isTemptationAllReady];
-        if (isTemptationAllReady) {
-            NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-            DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
-            // 女用户不再发机器人消息 --by大海 2016年06月30日10:38:18
-            if ([userInfo.b69 integerValue] == 1) {
-                // 男用户流程不变
-                [manager temptation_configMessage];
-            }
-            
-        }
-        NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-        DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
-        // 女用户不再发机器人消息 --by大海 2016年06月30日10:38:18
-        if ([userInfo.b69 integerValue] == 1) {
-            // 男用户流程不变
-            [manager configTimer];
-        }
-//        // 男用户流程不变
-//        [manager configTimer];
-
-//        // 已经支付过的，如果是今天支付的，延期两天继续发消息
-//        if (nil!=[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]){
-//            if ([manager isPayToday]) {
-//                [manager configTimer];
-//            }
-//        }else{
+        [manager configSuitRobotV1];
+    }
+#warning 付费后，不再发送机器人消息 ，不论男用户女用户都不发机器人 --by大海 2016年07月14日17:18:28
+//    else{
+//#warning 记得解开
+//        BOOL isTemptationAllReady = [manager isTemptationAllReady];
+//        if (isTemptationAllReady) {
 //            NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
-//            // 未支付的
-//            DHUserInfoModel *userinfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
-//            // 女用户,三天后就不发了
-//            if ([userinfo.b69 integerValue] == 2) {
-//                if ([manager isGirlRegToday]) {
-//                    [manager configTimer];
-//                }
-//            }else{
+//            DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
+//            // 女用户不再发机器人消息 --by大海 2016年06月30日10:38:18
+//            if ([userInfo.b69 integerValue] == 1) {
 //                // 男用户流程不变
-//                [manager configTimer];
+//                [manager temptation_configMessage];
 //            }
 //            
 //        }
-    }
+//        NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+//        DHUserInfoModel *userInfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
+//        // 女用户不再发机器人消息 --by大海 2016年06月30日10:38:18
+//        if ([userInfo.b69 integerValue] == 1) {
+//            // 男用户流程不变
+//            [manager configTimer];
+//        }
+////        // 男用户流程不变
+////        [manager configTimer];
+//
+////        // 已经支付过的，如果是今天支付的，延期两天继续发消息
+////        if (nil!=[[NSUserDefaults standardUserDefaults] objectForKey:@"XXAccount"]){
+////            if ([manager isPayToday]) {
+////                [manager configTimer];
+////            }
+////        }else{
+////            NSString *userId = [NSString stringWithFormat:@"%@",[NSGetTools getUserID]];
+////            // 未支付的
+////            DHUserInfoModel *userinfo = [DHUserInfoDao getUserWithCurrentUserId:userId];
+////            // 女用户,三天后就不发了
+////            if ([userinfo.b69 integerValue] == 2) {
+////                if ([manager isGirlRegToday]) {
+////                    [manager configTimer];
+////                }
+////            }else{
+////                // 男用户流程不变
+////                [manager configTimer];
+////            }
+////            
+////        }
+//    }
     manager.index = 0;
     return manager;
 }
@@ -208,6 +210,12 @@
     BOOL isSended = [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@_%@suit_hasSended",date,userId]];
     // 某用户某天注册的
     BOOL isTodayRegister = [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@_%@_registerDate",date,userId]];
+    
+    NSArray *hasSendIds = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_suit_temptation_hasSendIds",userId]];
+    if (hasSendIds.count >= 3) {
+        return NO;
+    }
+    
     // 不是当天注册的
     if (isTodayRegister == NO) {
         NSString *date = [[fmt stringFromDate:[NSDate date]] substringWithRange:NSMakeRange(11, 2)];

@@ -30,11 +30,18 @@
     NSInteger suitRobothasSended = [[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"%@_suitRobotHasSended",userId]];
     return suitRobothasSended;
 }
+/**
+ *  将未发出的消息保存
+ */
+- (void)suit_robot_will_logout_or_termination{
+    
+}
 
-- (void)configSuitRobot{
+- (void)configSuitRobotV1{
     
+    // 当app将要推出或者 用户将要logout登出的时候，将未发送的消息保存
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(suit_robot_will_logout_or_termination) name:NEW_SUIT_ROBOTV1_WILL_LOGOUT_OR_TERMINATION_NOTIFICATION object:nil];
     NSInteger today_suitRobothasSended = [self today_suitRobothasSended];
     if (today_suitRobothasSended < 10) {
         // 大于等于70套消息，就让停止-----注：此处为70套消息，不是70条消息，及发70个机器人的消息 --by大海 2016年06月16日20:33:45
@@ -70,11 +77,11 @@
     for (int i = 0 ;i < self.suitRobotArr.count ; i ++) {
         NSDictionary *dict = self.suitRobotArr[i];
         
-        NSInteger timeInterval = self.suit_timerIndex + [self randomIndexWithMaxNumber:60 * 3 min:60];
-//        (i+1) * 30 + [self randomIndexWithMaxNumber:30*2 min:30];
+//        NSInteger timeInterval = self.suit_timerIndex + [self randomIndexWithMaxNumber:60 * 3 min:60];
+        NSInteger timeInterval = [self randomIndexWithMaxNumber:60 * (i+1) min:60*i];
         self.suit_timerIndex = timeInterval;
         NSLog(@"userId:%@--第%d个人--%ld",[[dict allKeys] firstObject],i,timeInterval);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10  * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval  * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf timerActionWithInfo:dict];
         });
     }
@@ -83,11 +90,11 @@
 - (void)timerActionWithInfo:(NSDictionary *)info{
     NSString *robotuserid = [[info allKeys] lastObject];
     NSArray *messageList = [info objectForKey:robotuserid];
-    
     for ( int i = 0;i < messageList.count;i ++) {
         SuitRobotMessageModel *randomMessage = messageList[i];
         NSInteger lastTimeInterval = [[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"%@",robotuserid]];
-        NSInteger timeInterval = lastTimeInterval + [self randomIndexWithMaxNumber:60 * 3 min:60];
+//        NSInteger timeInterval = lastTimeInterval + [self randomIndexWithMaxNumber:60 * 3 min:60];
+         NSInteger timeInterval = [self randomIndexWithMaxNumber:60 * (i+1) min:60 * i];
         [[NSUserDefaults standardUserDefaults] setInteger:timeInterval forKey:[NSString stringWithFormat:@"%@",robotuserid]];
 //        (i+1)*30+[self randomIndexWithMaxNumber:30 * 2  min:30 ];
         NSLog(@"userId:%@--%d---%ld",randomMessage.b27,i,timeInterval);
@@ -97,21 +104,9 @@
             DHUserInfoModel *currentUserInfo = [self suit_getCurrentUserInfoWithUserId:userId];
             if ([DHUserInfoDao checkUserWithUsertId:randomMessage.b27]) {
                 DHUserInfoModel *userInfoModel =[DHUserInfoDao getUserWithCurrentUserId:randomMessage.b27];
-                // 及时判断已经发出去多少个人
-//                NSInteger today_suitRobothasSended = [self today_suitRobothasSended];
-//                if (today_suitRobothasSended < 10) {
-//                    // 大于等于70套消息，就让停止-----注：此处为70套消息，不是70条消息，及发70个机器人的消息 --by大海 2016年06月16日20:33:45
-//                    NSInteger suitRobothasSended = [self suitRobothasSended];
-//                    if (suitRobothasSended >= 70) {
-//                        return;
-//                    }
-//                }else{
-//                    return;
-//                }
                 // 同性别的不让发
                 if ([currentUserInfo.b69 integerValue] == [userInfoModel.b69 integerValue]) {
                     return ;
-                    //                    break;
                 }
                 
                 //发送消息
@@ -138,6 +133,9 @@
                             // 一个机器人发送完毕，记录+1
                             [[NSUserDefaults standardUserDefaults] setInteger:suitRobothasSended+1 forKey:[NSString stringWithFormat:@"%@_suitRobotHasSended",userId]];
                         }
+                        
+                        
+                        
                         [self.suitRobotArr removeObject:info];
                     }
                 }];

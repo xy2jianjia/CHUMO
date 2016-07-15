@@ -108,6 +108,8 @@ static SocketManager* _socketManager = nil;
                 DHMsgPlaySound *sound = [[DHMsgPlaySound alloc]initSystemSoundWithName:nil SoundType:nil];
                 [sound play];
                 [Mynotification postNotificationName:NEW_DIDRECEIVE_ONLINE_MESSAGE_NOTIFICATION object:item];
+                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:item];
+                
             }
                 break;
             case 1009:{
@@ -117,6 +119,7 @@ static SocketManager* _socketManager = nil;
                 DHMsgPlaySound *sound = [[DHMsgPlaySound alloc]initSystemSoundWithName:nil SoundType:nil];
                 [sound play];
                 [Mynotification postNotificationName:NEW_DIDRECEIVE_OFFLINE_MESSAGE_NOTIFICATION object:arr];
+                [Mynotification postNotificationName:@"new_didReLoadFriendDataArr" object:arr];
             }
                 break;
             default:
